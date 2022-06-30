@@ -26,5 +26,11 @@ namespace YCProduction.Web.Controllers
             ViewData["Photo"] = $"<img src='http://easyadmin.99php.cn/static/admin/images/head.jpg' width='50' height='50' class='layui-nav-img'>";
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Home()
+        {
+            return View();
+        }
     }
 }

@@ -198,3 +198,4 @@ C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netc
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\YCProduction.Web.dll
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\YCProduction.Web.pdb
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\YCProduction.Web.genruntimeconfig.cache
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\Home.cshtml.g.cs

@@ -1,10 +1,10 @@
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\bin\Debug\netcoreapp3.1\YCProduction.Model.deps.json
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\bin\Debug\netcoreapp3.1\YCProduction.Model.dll
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\bin\Debug\netcoreapp3.1\YCProduction.Model.pdb
-C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\obj\Debug\netcoreapp3.1\YCProduction.Model.csproj.AssemblyReference.cache
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\obj\Debug\netcoreapp3.1\YCProduction.Model.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\obj\Debug\netcoreapp3.1\YCProduction.Model.AssemblyInfoInputs.cache
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\obj\Debug\netcoreapp3.1\YCProduction.Model.AssemblyInfo.cs
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\obj\Debug\netcoreapp3.1\YCProduction.Model.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\obj\Debug\netcoreapp3.1\YCProduction.Model.dll
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\obj\Debug\netcoreapp3.1\YCProduction.Model.pdb
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Model\obj\Debug\netcoreapp3.1\YCProduction.Model.csproj.AssemblyReference.cache
