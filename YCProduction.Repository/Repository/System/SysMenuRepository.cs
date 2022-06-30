@@ -84,17 +84,17 @@ namespace YCProduction.Repository.Repository.System
                     list = menuList.Union(_list);
                     myList = list.ToList();
                     //一级目录
-                    var list_1 = list.Where(h => h.MenuLevel == 1);
+                    var list_1 = myList.Where(h => h.MenuLevel == 1);
                     foreach (var item in list_1)
                     {
                         //二级栏目
-                        var list_2 = list.Where(h => h.ParentId == item.Id).ToList();
+                        var list_2 = myList.Where(h => h.ParentId == item.Id).ToList();
                         foreach (var n in list_2)
                         {
                             //去除无子集的二级栏目
                             if (list.Count(q => q.ParentId == n.Id) == 0)
                             {
-                                myList = myList.Except(from o in list where o.Id == n.Id select o).ToList();
+                                myList = myList.Except(from o in myList where o.Id == n.Id select o).ToList();
                             }
                         }
                     }
@@ -103,7 +103,7 @@ namespace YCProduction.Repository.Repository.System
                         //去除无子集的一级栏目
                         if (myList.Count(q => q.ParentId == m.Id) == 0)
                         {
-                            myList = myList.Except(from o in list where o.Id == m.Id select o).ToList();
+                            myList = myList.Except(from o in myList where o.Id == m.Id select o).ToList();
                         }
                     }
 

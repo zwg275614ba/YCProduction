@@ -39,12 +39,13 @@
         form.on('submit(btnSubmit)', function () {
             var formData = $('#formForm').serialize();
             $.post('/System/User/AddInfo', formData, function (res) {
+                console.log(res);
                 if (res.State) {
-                    common.msgSuccess(res.Message);
+                    window.parent.tipSuccess(res.Message);
                     setTimeout(CloseWin, 1500);
                 }
                 else {
-                    common.msgError(res.Message);
+                    window.parent.tipError(res.Message);
                 }
             });
             return false;

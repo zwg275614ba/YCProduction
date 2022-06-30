@@ -63,14 +63,14 @@
             }
             $.post('/System/Action/AllotAction', { menuId:@ViewBag.ActionId, ids: nodesList.join(',') }, function (data) {
                 if (data.State) {
-                    common.msgSuccess(data.Message);
+                    window.parent.tipSuccess(data.Message);
                     setTimeout(function () {
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layer.close(index);
                     }, 1000);
                 }
                 else {
-                    common.msgError(data.Message);
+                    window.parent.tipError(data.Message);
                 }
             });
         });

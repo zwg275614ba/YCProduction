@@ -48,11 +48,11 @@
             var formData = $('#formForm').serialize();
             $.post('/System/Role/AddInfo', formData, function (res) {
                 if (res.State) {
-                    common.msgSuccess(res.Message);
+                    window.parent.tipSuccess(res.Message);
                     setTimeout(CloseWin, 1500);
                 }
                 else {
-                    common.msgError(res.Message);
+                    window.parent.tipError(res.Message);
                 }
             });
             return false;

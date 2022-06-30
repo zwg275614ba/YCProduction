@@ -9,11 +9,17 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+
+    <!-- 依 赖 样 式 -->
     <link href="~/lib/layui-v2.5.4/css/layui.css" asp-append-version="true" rel="stylesheet" />
-    <script src="~/lib/layui-v2.5.4/layui.js" asp-append-version="true"></script>
-    <link rel="icon" href="images/favicon.ico">
     <link href="~/css/dialog.css" asp-append-version="true" rel="stylesheet" />
     <link href="~/lib/font-awesome-4.7.0/css/font-awesome.min.css" asp-append-version="true" rel="stylesheet" />
+    <link rel="icon" href="images/favicon.ico">
+    <link href="~/lib/toastr/toastr.min.css" asp-append-version="true" rel="stylesheet" />
+    <!-- 依 赖 脚 本 -->
+    <script src="~/js/jquery-1.10.2.min.js" asp-append-version="true"></script>
+    <script src="~/lib/layui-v2.5.4/layui.js" asp-append-version="true"></script>
+    <script src="~/lib/toastr/toastr.min.js" asp-append-version="true"></script>
     <script src="~/js/global.js" asp-append-version="true"></script>
     <style type="text/css">
         body {
@@ -27,8 +33,7 @@
 
         .divQuery {
             width: 100%;
-            margin-top: 10px;
-            height: 60px;
+            height: 70px;
             background: #fff;
         }
 
@@ -69,6 +74,14 @@
             background-color: #fff;
             margin-top: 20px;
         }
+
+        .table-search-fieldset {
+            margin: 0;
+            border: 1px solid #ccc;
+            padding: 10px 20px 5px 20px;
+            color: #6b6b6b;
+            background-color: #fff;
+        }
     </style>
 </head>
 <body style="overflow:hidden;">
@@ -78,6 +91,20 @@
             base: '/lib/layui-v2.5.4/lay/app/',
             version: '4546545154'
         });
+
+        //提示信息
+        function tipSuccess(msg) {
+            toastrSuccess(msg);
+        }
+        function tipError(msg) {
+            toastrError(msg);
+        }
+        function tipInfo(msg) {
+            toastrInfo(msg);
+        }
+        function tipWarning(msg) {
+            toastrWarning(msg);
+        }
     </script>
 </body>
 </html>

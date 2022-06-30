@@ -110,3 +110,21 @@ document.onkeydown = function (event) {                //网页内按下回车�
         return false;
     }
 }
+//初始化toastr
+toastr.options.positionClass = 'toast-top-right';
+//toastr成功
+function toastrSuccess(msg) {
+    toastr.success(msg);
+}
+//toastr失败
+function toastrError(msg) {
+    toastr.error(msg);
+}
+//toastr警告
+function toastrWarning(msg) {
+    toastr.warning(msg);
+}
+//toastr 信息
+function toastrInfo(msg) {
+    toastr.info(msg);
+}

@@ -11,6 +11,7 @@ using YCProduction.IService.IService.System;
 using YCProduction.Model.Entitys.System;
 using YCProduction.Model.Entitys.Values;
 using YCProduction.Model.SearchParam.System;
+using YCProduction.Model.ViewModel;
 using YCProduction.Web.Controllers;
 
 
@@ -224,6 +225,45 @@ namespace YCProduction.Web.Areas.System.Controllers
             }
             return Json(ajaxResult);
         }
+        #endregion
+
+        #region 修改个人密码
+        [HttpGet]
+        public ActionResult EditPwd()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditPwd(ModifyPwdEntity model)
+        {
+            AjaxResult ajaxResult = new AjaxResult();
+            ajaxResult.State = false;
+            ajaxResult.Message = "修改密码失败";
+            int userId = LoginUserId;
+            var userEntity = await _sysUserService.GetAsync(h => h.Id == userId);
+            if (userEntity != null && userEntity.Id > 0)
+            {
+                //验证输入的原密码是否正确
+                if (!userEntity.PassWord.Equals(Md5Crypt.Encrypt(model.OldPassword)))
+                {
+                    ajaxResult.Message = "输入的原密码错误";
+                    return Json(ajaxResult);
+                }
+                //验证输入的新密码是否为原密码
+                if (userEntity.PassWord.Equals(Md5Crypt.Encrypt(model.NewPassword)))
+                {
+                    ajaxResult.Message = "新密码不能与原密码一致";
+                    return Json(ajaxResult);
+                }
+                //修改密码
+                userEntity.PassWord = Md5Crypt.Encrypt(model.NewPassword);
+                await _sysUserService.UpdateAsync(userEntity);
+                ajaxResult.State = true;
+                ajaxResult.Message = "密码修改成功,请重新登录";
+            }
+            return Json(ajaxResult);
+        }
+
         #endregion
     }
 }

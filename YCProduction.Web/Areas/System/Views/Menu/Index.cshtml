@@ -7,15 +7,18 @@
 <link href="~/js/lay-module/treetable-lay/treetable.css" rel="stylesheet" />
 <div class="main">
     <!----------------------查询---------------------------------->
-    <div class="divQuery">
-        <div class="layui-btn-group" style="line-height:60px;padding-left:50px;">
-            <button class="layui-btn layui-btn-sm" id="btn-expand">全部展开</button>
-            <button class="layui-btn layui-btn-sm" id="btn-fold">全部折叠</button>
+    <fieldset class="table-search-fieldset">
+        <legend>搜索信息</legend>
+        <div class="divQuery">
+            <div class="layui-btn-group" style="line-height:60px;padding-left:50px;">
+                <button class="layui-btn layui-btn-sm" id="btn-expand">全部展开</button>
+                <button class="layui-btn layui-btn-sm" id="btn-fold">全部折叠</button>
+            </div>
+            <div class="btn-right">
+                @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+            </div>
         </div>
-        <div class="btn-right">
-            @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
-        </div>
-    </div>
+    </fieldset>
     <!------------------表格-------------------------->
     <div class="divTable">
         <div class="content">
@@ -52,9 +55,9 @@
                  {
                      field: 'Status', title: '@Html.DisplayNameFor(a=>a.Status)', templet: function (res) {
                          if (res.Status == 1)
-                             return "启动"
-                         else
                              return "关闭"
+                         else
+                             return "启动"
                      }
                  },
               { field: '', title: '操作', toolbar: '#toolBar', width: 220 }
@@ -88,10 +91,10 @@
                     $.post('/System/Menu/DelInfo', { id: data.Id }, function (data) {
                         if (data.State) {
                             obj.del();//删除这一行
-                            common.msgSuccess(data.Message);
+                            tipSuccess(data.Message);
                         }
                         else {
-                            common.msgError(data.Message);
+                            tipError(data.Message);
                         }
                         layer.close(index);//关闭弹框
                     });

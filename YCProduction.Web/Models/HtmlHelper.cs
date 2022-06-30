@@ -110,11 +110,11 @@ namespace Microsoft.AspNetCore.Mvc
         /// <returns></returns>
         public static HtmlString StateRadioHtml(this IHtmlHelper help, int ckeckedVal = 0)
         {
-            var check = ckeckedVal == 0 ? "checked" : "";
-            var check2 = ckeckedVal == 0 ? "" : "checked";
+            var check = ckeckedVal == 0 ? "" : "checked";
+            var check2 = ckeckedVal == 0 ? "checked" : "";
             StringBuilder sb = new StringBuilder();
-            sb.Append(string.Format("<input type=\"radio\" name=\"Status\" value=\"0\" title=\"关闭\" {0}>", check));
-            sb.Append(string.Format("<input type=\"radio\" name=\"Status\" value=\"1\" title=\"开启\" {0}>", check2));
+            sb.Append(string.Format("<input type=\"radio\" name=\"Status\" value=\"1\" title=\"关闭\" {0}>", check));
+            sb.Append(string.Format("<input type=\"radio\" name=\"Status\" value=\"0\" title=\"开启\" {0}>", check2));
             return new HtmlString(sb.ToString());
         }
 

@@ -3,7 +3,7 @@
 }
 
 <!-- 布 局 框 架 -->
-<div class="layui-layout layui-layout-admin">
+<div class="layui-layout layui-layout-admin layui-hide layui-load">
     <div class="layui-header header">
         <div class="layui-logo">
             <a href="#">
@@ -41,10 +41,10 @@
                         <a href="javascript:;" data-icon="fa fa-gears" id="info">个人信息</a>
                     </dd>
                     <dd>
-                        <a href="javascript:;" data-iframe-tab="/user/EditPwd" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
+                        <a href="javascript:;" data-iframe-tab="/System/User/EditPwd" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
                     </dd>
                     <dd>
-                        <a  class="login-out" asp-action="OutLogin" asp-controller="Account" >退出登录</a>
+                        <a class="login-out" asp-action="OutLogin" asp-controller="Account">退出登录</a>
                     </dd>
                 </dl>
             </li>
@@ -77,5 +77,10 @@
             </div>
         </div>
     </div>
+</div>
+<!-- 加 载 动 画 -->
+<div class="loader-main">
+    <!-- 动 画 对 象 -->
+    <div class="loader"></div>
 </div>
 

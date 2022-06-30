@@ -6,43 +6,46 @@
 
 <div class="main">
     <!------------------查询-------------------------->
-    <div class="divQuery">
-        <form class="layui-form" action="" id="formSearch">
-            <div class="layui-form-item">
-                <label class="layui-form-label">操作人</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="UserName" placeholder="操作人" class="layui-input">
+    <fieldset class="table-search-fieldset">
+        <legend>搜索信息</legend>
+        <div class="divQuery">
+            <form class="layui-form" action="" id="formSearch">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">操作人</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="UserName" placeholder="操作人" class="layui-input">
+                    </div>
+                    <label class="layui-form-label">类型</label>
+                    <div class="layui-input-inline">
+                        @Html.DrownHtml("LogType")
+                    </div>
+                    <label class="layui-form-label">时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="StateTime" id="StateTime" placeholder="时间" class="layui-input">
+                    </div>
+                    <div class="layui-input-inline btn">
+                        <a href="javascript:;" class="layui-btn layui-btn-sm" id="btnQuery" data-type="reload">
+                            查询
+                        </a>
+                        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+                    </div>
+                    <div class="btn-right">
+                        @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                    </div>
                 </div>
-                <label class="layui-form-label">类型</label>
-                <div class="layui-input-inline">
-                    @Html.DrownHtml("LogType")
-                </div>
-                <label class="layui-form-label">时间</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="StateTime" id="StateTime" placeholder="时间" class="layui-input">
-                </div>
-                <div class="layui-input-inline btn">
-                    <a href="javascript:;" class="layui-btn layui-btn-sm" id="btnQuery" data-type="reload">
-                        查询
-                    </a>
-                    <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
-                </div>
-                <div class="btn-right">
-                    @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
-                </div>
-            </div>
-        </form>
-    </div>
-    <!------------------表格-------------------------->
-    <div class="divTable">
-        <div class="content">
-            <table id="defaultTable" lay-filter="LogTable"></table>
+            </form>
         </div>
-    </div>
-    <!--------------------工具栏表格内------------------->
-    <script type="text/html" id="toolBar">
-        @Html.ToolBarHtml(ViewData["ActionList"])
-    </script>
+    </fieldset>
+        <!------------------表格-------------------------->
+        <div class="divTable">
+            <div class="content">
+                <table id="defaultTable" lay-filter="LogTable"></table>
+            </div>
+        </div>
+        <!--------------------工具栏表格内------------------->
+        <script type="text/html" id="toolBar">
+            @Html.ToolBarHtml(ViewData["ActionList"])
+        </script>
 </div>
 
 <script type="text/javascript">

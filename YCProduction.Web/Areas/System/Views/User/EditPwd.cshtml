@@ -1,0 +1,154 @@
+﻿@model YCProduction.Model.ViewModel.ModifyPwdEntity
+@{
+    ViewData["Title"] = "EditPwd";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+
+<style type="text/css">
+    .layui-input-inline {
+        width: 350px !important;
+    }
+
+    .pwd {
+        background-image: url('../../images/pwd-1.png');
+        width: 179px;
+        height: 14px;
+        position: absolute;
+        bottom: 0;
+        left: 120px;
+    }
+
+    .pwd2 {
+        background-image: url('../../images/pwd-2.png');
+        height: 14px;
+        position: absolute;
+        bottom: 0px;
+        left: 120px;
+    }
+
+    .txt {
+        width: 180px;
+        height: 20px;
+        margin-top: 20px;
+        margin-left: 120px;
+    }
+
+        .txt span {
+            display: block;
+            float: left;
+            color: #707070;
+            font-size: 12px;
+            text-align: center;
+            width: 60px;
+        }
+</style>
+<div class="divContent">
+    <form class="layui-form" action="" method="post" id="formForm2">
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                @Html.DisplayNameFor(h => h.OldPassword)
+            </label>
+            <div class="layui-input-inline">
+                @Html.PasswordFor(model => model.OldPassword, new Dictionary<string, object>() { { "class", "layui-input" }, { "placeholder", "原密码" }, { "lay-verify", "OldPassword" }, { "lay-vertype", "tips" } })
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                @Html.DisplayNameFor(h => h.NewPassword)
+            </label>
+            <div class="layui-input-inline">
+                @Html.PasswordFor(model => model.NewPassword, new Dictionary<string, object>() { { "class", "layui-input" }, { "placeholder", "新密码" }, { "lay-verify", "NewPassword" }, { "lay-vertype", "tips" } })
+            </div>
+        </div>
+        <div class="layui-form-item" style="position:relative;">
+            <div class="pwd"> </div>
+            <div class="pwd2"> </div>
+        </div>
+        <div class="layui-form-item" style="margin-bottom:0 !important">
+            <div class="txt">
+                <span>弱</span>
+                <span>中</span>
+                <span>强</span>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                @Html.DisplayNameFor(h => h.NewPassword)
+            </label>
+            <div class="layui-input-inline">
+                @Html.PasswordFor(model => model.ConfirmPassword, new Dictionary<string, object>() { { "class", "layui-input" }, { "placeholder", "确认密码" }, { "lay-verify", "ConfirmPassword" }, { "lay-vertype", "tips" } })
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button lay-submit="" lay-filter="btnSubmit" class="layui-btn layui-btn-normal">保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="~/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    layui.use(['form', 'common'], function () {
+        var $ = layui.$,
+            form = layui.form,
+            common = layui.common;
+        //自定义验证
+        form.verify({
+            OldPassword: function (value) {
+                if (!$.trim(value))
+                    return "请输入原密码"
+            },
+            NewPassword: function (value) {
+                if (!$.trim(value))
+                    return "请输入新密码"
+            },
+            ConfirmPassword: function (value) {
+                if (!$.trim(value)) {
+                    return "请输入确认密码"
+                }
+                if ($('#NewPassword').val() != value) {
+                    return "二次输入的密码不一致"
+                }
+            }
+        });
+        //保存
+        form.on('submit(btnSubmit)', function () {
+            var formData = $('form').serialize();
+            $.post('/System/User/EditPwd', formData, function (res) {
+                if (res.State) {
+                    common.msgSuccess(res.Message);
+                }
+                else {
+                    common.msgError(res.Message);
+                }
+            });
+            return false;
+        });
+    });
+
+    $(function () {
+        /******密码强度提示******/
+        $('#NewPassword').keyup(function () {
+            var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+            var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+            var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+            if (false == enoughRegex.test($(this).val())) {
+                //密码小于六位的时候，密码强度图片都为灰色
+                $('.pwd2').css({ "width": "0" });
+            }
+            else if (strongRegex.test($(this).val())) {
+                //密码为八位及以上并且字母数字特殊字符三项都包括,强度最强
+                $('.pwd2').css({ "width": "180" });
+            }
+            else if (mediumRegex.test($(this).val())) {
+                //密码为七位及以上并且字母、数字、特殊字符三项中有两项，强度是中等
+                $('.pwd2').css({ "width": "120" });
+            }
+            else {
+                //如果密码为6为及以下，就算字母、数字、特殊字符三项都包括，强度也是弱的
+                $('.pwd2').css({ "width": "60" });
+            }
+        });
+    });
+</script>
+

@@ -5,25 +5,28 @@
 
 <div class="main">
     <!------------------查询-------------------------->
-    <div class="divQuery">
-        <form class="layui-form" action="" id="formSearch">
-            <div class="layui-form-item">
-                <label class="layui-form-label">用户名称</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="UserName" placeholder="用户名" class="layui-input">
+    <fieldset class="table-search-fieldset">
+        <legend>搜索信息</legend>
+        <div class="divQuery">
+            <form class="layui-form" action="" id="formSearch">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="UserName" placeholder="用户名" class="layui-input">
+                    </div>
+                    <div class="layui-input-inline btn">
+                        <a href="javascript:;" class="layui-btn layui-btn-sm" id="btnQuery" data-type="reload">
+                            查询
+                        </a>
+                        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+                    </div>
+                    <div class="btn-right">
+                        @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                    </div>
                 </div>
-                <div class="layui-input-inline btn">
-                    <a href="javascript:;" class="layui-btn layui-btn-sm" id="btnQuery" data-type="reload">
-                        查询
-                    </a>
-                    <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
-                </div>
-                <div class="btn-right">
-                    @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
-                </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
+    </fieldset>
     <!------------------表格-------------------------->
     <div class="divTable">
         <div class="content">
@@ -94,26 +97,25 @@
         //监听用户状态操作
         form.on('switch(table-State)', function (obj) {
             var f = obj.elem.checked ? 0 : 1;
-            alert(f);
             $.post('/System/User/IsState', { Id: this.value, State: f }, function (data) {
                 if (data.State) {
-                    common.msgSuccess(data.Message);
+                    //common.msgSuccess(data.Message);
+                    tipSuccess(data.Message);
                 }
                 else {
-                    common.msgError(data.Message);
+                    tipError(data.Message);
                 }
             });
         });
         //监听用户是否改密状态操作
         form.on('switch(table-IsPwd)', function (obj) {
             var f = obj.elem.checked ? 0 : 1;
-            alert(f);
             $.post('/System/User/IsPwd', { Id: this.value, IsPwd: f }, function (data) {
                 if (data.State) {
-                    common.msgSuccess(data.Message);
+                    tipSuccess(data.Message);
                 }
                 else {
-                    common.msgError(data.Message);
+                    tipError(data.Message);
                 }
             });
         });
@@ -142,10 +144,10 @@
                     $.post('/System/User/DelInfo', { id: data.Id }, function (data) {
                         if (data.State) {
                             obj.del();//删除这一行
-                            common.msgSuccess(data.Message);
+                            tipSuccess(data.Message);
                         }
                         else {
-                            common.msgError(data.Message);
+                            tipError(data.Message);
                         }
                         layer.close(index);//关闭弹框
                     });
@@ -156,10 +158,10 @@
                 layer.confirm('确定要操作该用户密码', function (index) {
                     $.post('/System/User/ResetPwd', { id: data.Id }, function (data) {
                         if (data.State) {
-                            common.msgSuccess(data.Message);
+                            tipSuccess(data.Message);
                         }
                         else {
-                            common.msgError(data.Message);
+                            tipError(data.Message);
                         }
                         layer.close(index);//关闭弹框
                     });
