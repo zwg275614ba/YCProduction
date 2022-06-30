@@ -6786,11 +6786,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj",
       "projectName": "YCProduction.IRepository",
-      "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IRepository\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6812,11 +6812,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
-              "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
+            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
             },
-            "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
-              "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
+            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
             }
           }
         }

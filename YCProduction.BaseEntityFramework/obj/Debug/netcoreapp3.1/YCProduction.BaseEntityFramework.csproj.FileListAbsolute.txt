@@ -1,0 +1,15 @@
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\bin\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.deps.json
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\bin\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.dll
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\bin\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.pdb
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\bin\Debug\netcoreapp3.1\YCProduction.Common.dll
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\bin\Debug\netcoreapp3.1\YCProduction.Model.dll
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\bin\Debug\netcoreapp3.1\YCProduction.Common.pdb
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\bin\Debug\netcoreapp3.1\YCProduction.Model.pdb
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\obj\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.csproj.AssemblyReference.cache
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\obj\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\obj\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.AssemblyInfoInputs.cache
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\obj\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.AssemblyInfo.cs
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\obj\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\obj\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.csproj.CopyComplete
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\obj\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.dll
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.BaseEntityFramework\obj\Debug\netcoreapp3.1\YCProduction.BaseEntityFramework.pdb

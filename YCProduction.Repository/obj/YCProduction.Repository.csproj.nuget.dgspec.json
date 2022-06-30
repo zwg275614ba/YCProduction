@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj": {}
+    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj": {}
   },
   "projects": {
-    "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
+    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj",
         "projectName": "YCProduction.BaseEntityFramework",
-        "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -33,11 +33,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
-                "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj"
+              "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj"
               },
-              "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
-                "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
+              "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
               }
             }
           }
@@ -80,14 +80,14 @@
         }
       }
     },
-    "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
+    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
         "projectName": "YCProduction.Common",
-        "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -173,14 +173,14 @@
         }
       }
     },
-    "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj": {
+    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj",
         "projectName": "YCProduction.IRepository",
-        "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IRepository\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -202,11 +202,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
-                "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
+              "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
               },
-              "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
-                "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
+              "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
               }
             }
           }
@@ -265,14 +265,14 @@
         }
       }
     },
-    "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
+    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
         "projectName": "YCProduction.Model",
-        "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -334,14 +334,14 @@
         }
       }
     },
-    "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj": {
+    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj",
         "projectName": "YCProduction.Repository",
-        "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Repository\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -363,11 +363,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
-                "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
+              "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
               },
-              "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj": {
-                "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj"
+              "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj"
               }
             }
           }

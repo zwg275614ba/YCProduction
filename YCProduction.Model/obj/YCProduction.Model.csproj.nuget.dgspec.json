@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {}
+    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {}
   },
   "projects": {
-    "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
+    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
         "projectName": "YCProduction.Model",
-        "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

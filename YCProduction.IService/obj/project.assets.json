@@ -6799,11 +6799,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IService\\YCProduction.IService.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IService\\YCProduction.IService.csproj",
       "projectName": "YCProduction.IService",
-      "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IService\\YCProduction.IService.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IService\\YCProduction.IService.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.IService\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6825,11 +6825,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
-              "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj"
+            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj"
             },
-            "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
-              "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
+            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
             }
           }
         }

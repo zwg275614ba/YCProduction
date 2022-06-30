@@ -6759,11 +6759,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
       "projectName": "YCProduction.Common",
-      "projectPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\工作文件\\项目\\项目管理系统\\YCProduction\\YCProduction.Common\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
