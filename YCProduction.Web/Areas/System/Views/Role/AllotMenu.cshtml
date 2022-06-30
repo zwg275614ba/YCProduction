@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewData["Title"] = "AllotMenu";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+
+<style type="text/css">
+    .main {
+        margin-top: 20px;
+        margin-left: 40px;
+    }
+
+    .right {
+        float: left;
+        width: 85%;
+    }
+
+    .folder-open {
+        display: inline-block;
+        margin-right: 2px;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        text-indent: -999em;
+        background: url('../../images/skin_icons.png') -40px -196px no-repeat;
+    }
+
+    .folder-line {
+        display: inline-block;
+        margin-right: 2px;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        text-indent: -999em;
+        background: url('../../images/skin_icons.png') -80px -196px no-repeat;
+    }
+
+    .lab {
+        margin-left: 5px;
+    }
+
+    tfoot td {
+        text-align: right;
+    }
+</style>
+<div class="main">
+    <div class="layui-form-item">
+        <label class="layui-form-label">角色名称</label>
+        <div class="layui-input-inline">
+            <input type="text" readonly="readonly" value="@ViewBag.RoleName" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">菜单权限</label>
+        <div class="right">
+            <table id="menuTable" class="layui-table table">
+                <thead>
+                    <tr>
+                        <td>导航名称</td>
+                        <td>权限分配</td>
+                        <td>功能分配</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <a href='javascript:void(0);' class="layui-btn layui-btn-normal layui-btn-xs" id="allcheck">全选</a>
+                            <a href='javascript:void(0);' class="layui-btn layui-btn-normal layui-btn-xs" id="btnSave">保存</a>
+                            <a href='javasctipt:void(0);' class="layui-btn layui-btn-primary layui-btn-xs" id="btnClose">取消</a>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/lib/layui-v2.5.4/layui.all.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var _param = { _roleid:@ViewBag.RoleId};
+        var _handler = {
+            //加载数据
+            _loadData: function () {
+                $.ajax({
+                    url: '/System/Role/AllotMenu',
+                    data: { roleId: _param._roleid },
+                    type: 'post',
+                    dataType: 'html',
+                    success: function (data) {
+                        $('#menuTable tbody').html(data);
+                        //全选
+                        $("span[_target=all]").unbind("click").bind("click", function () {
+                            $(this).parent().parent().find("input[type='checkbox']").prop("checked",true);
+                        });
+                        //取消
+                        $("span[_target=unall]").unbind("click").bind("click", function () {
+                            $(this).parent().parent().find("input[type='checkbox']").prop("checked", false);
+                        });
+                    },
+                    error: function () {
+                        alert("加载数据失败");
+                    }
+                });
+            },
+            //全部选择
+            _allcheck: function () {
+                $('#allcheck').click(function () {
+                    $('#menuTable').find("input[type='checkbox']").prop("checked", true);
+                });
+            },
+            //关闭页面
+            _close: function () {
+                $('#btnClose').click(function () {
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);
+                });
+            },
+            //提交数据
+            _submit: function () {
+                $('#btnSave').click(function () {
+                    var _roleId = _param._roleid;
+                    var cbxs = $("#menuTable").find('tbody input[type="checkbox"]');
+                    var _list = [];
+                    cbxs.each(function (index, item) {
+                        if (item.checked == true) {
+                            var _row = { MenuId: 0, RoleId: 0, ActionId: 0 };
+                            var _name = item.name;//chx_2
+                            if (_name.indexOf('cbx_') > -1) {
+                                _name = _name.replace('cbx_', '');
+                            } else {
+                                _name = item.getAttribute('tag');
+                                if (_name.indexOf('cbx_') > -1) {
+                                    _name = _name.replace('cbx_', '');
+                                }
+                            }
+                            _row.MenuId = _name;
+                            _row.ActionId = item.value == "on" ? 0 : item.value;
+                            _row.RoleId = _roleId;
+                            _list.push(_row);
+                        }
+                    });
+                    $.post('/System/Role/AddRMA', { roleId: _roleId, list: JSON.stringify(_list) }, function (res) {
+                        if (res.State) {
+                            layer.msg(res.Message);
+                            setTimeout(CloseWin, 1500);
+                        }
+                        else {
+                            layer.msg(res.Message);
+                        }
+                    });
+                });
+            },
+            _init: function () {
+                _handler._loadData();
+                _handler._allcheck();
+                _handler._close();
+                _handler._submit();
+            }
+        };
+        _handler._init();
+    });
+</script>
+

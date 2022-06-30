@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+@model YCProduction.Model.Entitys.System.SysUser
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>项目管理系统-登录</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link href="~/lib/layui-v2.5.4/css/layui.css" rel="stylesheet" />
+    <link href="~/css/login/login.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="login-wall">
+        <div class="login-left">
+            <p style="width:550px;text-align:left;font-size:50px">项目管理系统</p>
+            <div class="login-left-bg"></div>
+        </div>
+        <div class="login-right">
+            <form action="" id="forms" method="post" class="layui-form">
+                <h1>用户登录</h1>
+                <div class="cell"><span class="icon-user"></span><input type="text" asp-for="UserName" lay-verify="required" lay-verType="tips" placeholder="登录账号" autocomplete="off"></div>
+                <div class="cell"><span class="icon-pwd"></span><input type="password" asp-for="PassWord" lay-verify="required" lay-verType="tips" placeholder="登录密码" autocomplete="off"></div>
+                <div class="login-tip"><span></span></div>
+                <div class="login-btn">
+                    <button class="layui-btn layui-btn-normal" lay-submit="" lay-filter="submitLogin" id="btnSubmit">登录</button>
+                    <button type="reset" class="layui-btn layui-btn-danger">重置</button>
+                </div>
+            </form>
+        </div>
+        <div class="layui-clear"></div>
+    </div>
+    <script src="~/lib/layui-v2.5.4/layui.js"></script>
+    <script type="text/javascript">
+        layui.use(['form'], function () {
+            var form = layui.form,
+                $ = layui.$;
+            //登录
+            form.on('submit(submitLogin)', function () {
+                var formData = {};
+                formData["UserName"] = $.trim($('#UserName').val());
+                formData["PassWord"] = $.trim($('#PassWord').val());
+                $('#btnSubmit').prop("disabled", true).html("登录中...");
+                $.post('/Account/Login', formData, function (res) {
+                    console.log(res);
+                    if (res.State) {
+                        $('#btnSubmit').html(res.Message);
+                        setTimeout(function () {
+                            window.location.href = '/';
+                        }, 500);
+                    }
+                    else {
+                        $('#btnSubmit').prop("disabled", false).html("登录");
+                        $('.login-tip').height(40).show();
+                        $('.login-tip span').html(res.Message);
+                        setTimeout(function () {
+                            $('.login-tip').slideUp(500);
+                        }, 500);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

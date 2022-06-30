@@ -1,0 +1,144 @@
+﻿@model YCProduction.Model.Entitys.System.SysLog
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+
+<div class="main">
+    <!------------------查询-------------------------->
+    <div class="divQuery">
+        <form class="layui-form" action="" id="formSearch">
+            <div class="layui-form-item">
+                <label class="layui-form-label">操作人</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="UserName" placeholder="操作人" class="layui-input">
+                </div>
+                <label class="layui-form-label">类型</label>
+                <div class="layui-input-inline">
+                    @Html.DrownHtml("LogType")
+                </div>
+                <label class="layui-form-label">时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="StateTime" id="StateTime" placeholder="时间" class="layui-input">
+                </div>
+                <div class="layui-input-inline btn">
+                    <a href="javascript:;" class="layui-btn layui-btn-sm" id="btnQuery" data-type="reload">
+                        查询
+                    </a>
+                    <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+                </div>
+                <div class="btn-right">
+                    @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                </div>
+            </div>
+        </form>
+    </div>
+    <!------------------表格-------------------------->
+    <div class="divTable">
+        <div class="content">
+            <table id="defaultTable" lay-filter="LogTable"></table>
+        </div>
+    </div>
+    <!--------------------工具栏表格内------------------->
+    <script type="text/html" id="toolBar">
+        @Html.ToolBarHtml(ViewData["ActionList"])
+    </script>
+</div>
+
+<script type="text/javascript">
+    layui.use(['form', 'common', 'table', 'laydate'], function () {
+        var form = layui.form,
+            common = layui.common,
+            $ = layui.$,
+            table = layui.table,
+            laydate = layui.laydate;
+        //渲染时间控件
+        laydate.render({
+            elem: '#StateTime',
+            range: true
+        });
+        //渲染表格
+        table.render({
+            id: 'defaultReload',
+            elem: '#defaultTable',
+            height: 'full-110',
+            url: '/System/Log/GetLogList',
+            toolbar: '#toolBar',
+            page: true,
+            cols: [[
+                 { type: 'checkbox', fixed: 'left' },
+                 { field: 'Id', title: '@Html.DisplayNameFor(a=>a.Id)', sort: true,width:70 },
+                 { field: 'UserName', title: '@Html.DisplayNameFor(a=>a.UserName)', sort: true },
+                 {
+                     field: 'LogType', title: '@Html.DisplayNameFor(a=>a.LogType)', sort: true, templet: function (res) {
+                         switch (res.LogType) {
+                             case 1: return "退出"; break;
+                             case 3: return "新增"; break;
+                             case 4: return "删除"; break;
+                             case 5: return "编辑"; break;
+                             case 8: return "登录"; break;
+                             default: return ""; break;
+                         }
+                     }
+                 },
+                 { field: 'Description', title: '@Html.DisplayNameFor(a=>a.Description)', sort: true },
+                { field: 'CreateDate', title: '@Html.DisplayNameFor(a => a.CreateDate)', sort: true, templet: '<div>{{__subDateTime(d.CreateDate)}}</div>' }
+            ]]
+        });
+        var active = {
+            reload: function () {
+                var jsonWhere = urlToJson($("#formSearch").serialize());
+                //执行重载
+                table.reload('defaultReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                  , where: jsonWhere
+                });
+            }
+        };
+        //服务器排序
+        table.on('sort(LogTable)', function (obj) {
+            table.reload('defaultReload', {
+                initSort: obj
+              , where: { //请求参数
+                  field: obj.field //排序字段
+                , order: obj.type //排序方式
+              }
+            });
+        });
+        //查询
+        $("#btnQuery").on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+        //监控工具栏
+        table.on('toolbar(LogTable)', function (obj) {
+            if (obj.event === 'del') {
+                var checkStatus = table.checkStatus('defaultReload');
+                if (checkStatus.data.length > 0) {
+                    var data = checkStatus.data;
+                    var arr = [];
+                    for (var i = 0; i < data.length; i++) {
+                        arr.push(data[i].Id);
+                    }
+                    $.post('/System/Log/AllDel', { ids: arr.join(',') }, function (data) {
+                        if (data.State) {
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1000);
+                            common.msgSuccess(data.Message);
+                        }
+                        else {
+                            common.msgError(data.Message);
+                        }
+                    });
+                }
+                else {
+                    common.msgError("未选中任何行");
+                }
+            }
+        });
+    });
+</script>
+

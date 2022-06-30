@@ -1,0 +1,129 @@
+﻿@model YCProduction.Model.Entitys.System.SysAction
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+
+<div class="main">
+    <!------------------查询-------------------------->
+    <div class="divQuery">
+        <form class="layui-form" action="" id="formSearch">
+            <div class="layui-form-item">
+                <label class="layui-form-label">按钮名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="ActionName" placeholder="按钮名称" class="layui-input">
+                </div>
+                <div class="layui-input-inline btn">
+                    <a href="javascript:;" class="layui-btn layui-btn-sm" id="btnQuery" data-type="reload">
+                        查询
+                    </a>
+                    <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+                </div>
+                <div class="btn-right">
+                    @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                </div>
+            </div>
+        </form>
+    </div>
+    <!------------------表格-------------------------->
+    <div class="divTable">
+        <div class="content">
+            <table id="defaultTable" lay-filter="ActionTable"></table>
+        </div>
+    </div>
+    <!------------------工具栏------------------------->
+    <script type="text/html" id="toolBar">
+        @Html.ToolBarHtml(ViewData["ActionList"])
+    </script>
+</div>
+
+
+<script type="text/javascript">
+    layui.use(['form', 'table', 'common'], function () {
+        var form = layui.form,
+            common = layui.common,
+            table = layui.table,
+            $ = layui.$;
+        //渲染表格
+        table.render({
+            id: 'defaultReload',
+            elem: '#defaultTable',
+            height: 'full-110',
+            url: '/System/Action/GetActionList',
+            toolbar: true,
+            page: true,
+            cols: [[
+                 { field: 'Id', title: '@Html.DisplayNameFor(a=>a.Id)', sort: true, width: 100 },
+                { field: 'ActionName', title: '@Html.DisplayNameFor(a=>a.ActionName)', sort: true, },
+                {
+                    field: 'Icon', title: '@Html.DisplayNameFor(a=>a.Icon)', sort: true, templet: function (res) {
+                        return `<i class='fa ${res.Icon}'></i>`
+                    }
+                },
+                 { field: 'Method', title: '@Html.DisplayNameFor(a=>a.Method)', sort: true},
+                 { field: 'OrderBy', title: '@Html.DisplayNameFor(a=>a.OrderBy)', sort: true },
+                { field: 'CreateDate', title: '@Html.DisplayNameFor(a => a.CreateDate)', sort: true, templet: '<div>{{__subDateTime(d.CreateDate)}}</div>' },
+                 { field: '', title: '操作', toolbar: '#toolBar', width: 180 }
+            ]]
+        });
+        var active = {
+            reload: function () {
+                var jsonWhere = urlToJson($("#formSearch").serialize());
+                //执行重载
+                table.reload('defaultReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                  , where: jsonWhere
+                });
+            }
+        };
+        //服务器排序
+        table.on('sort(ActionTable)', function (obj) {
+            table.reload('defaultReload', {
+                initSort: obj
+              , where: { //请求参数
+                  field: obj.field //排序字段
+                , order: obj.type //排序方式
+              }
+            });
+        });
+        //查询
+        $("#btnQuery").on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+        //添加
+        $('#btnAdd').on('click', function () {
+            common.openTop({
+                title: '添加功能', w: '600px', h: '650px', content: '/System/Action/AddAction/'
+            });
+        });
+        //监听工具栏
+        table.on('tool(ActionTable)', function (obj) {
+            var data = obj.data;
+            //编辑
+            if (obj.event === 'edit') {
+                common.openTop({
+                    title: '编辑功能', w: '600px', h: '650px', content: '/System/Action/EditAction/' + data.Id
+                });
+            }//删除
+            else if (obj.event === 'del') {
+                layer.confirm('确定要删除该记录', function (index) {
+                    $.post('/System/Action/DelInfo', { id: data.Id }, function (data) {
+                        if (data.State) {
+                            obj.del();//删除这一行
+                            common.msgSuccess(data.Message);
+                        }
+                        else {
+                            common.msgError(data.Message);
+                        }
+                        layer.close(index);//关闭弹框
+                    });
+                });
+            }
+        });
+    });
+</script>
+
+

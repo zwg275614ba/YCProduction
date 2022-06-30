@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewData["Title"] = "AddMenu";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+
+<style type="text/css">
+    .box-line {
+        border-bottom: solid 1px #ccc;
+        height: 30px;
+    }
+
+    .layui-input-inline span {
+        cursor: pointer;
+    }
+</style>
+<form class="layui-form" action="" method="post" id="formForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">菜单名称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="MenuName" lay-verify="MenuName" class="layui-input" autocomplete="off" lay-vertype="tips" placeholder="菜单名称">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">父级</label>
+        <div class="layui-input-inline box-line">
+            <span id="spNmae"></span>
+            <input type="hidden" autocomplete="off" name="ParentId" id="txtParentId" class="layui-input">
+        </div>
+        <div style="line-height:40px;float:left;">
+            <span class="fa fa-search" title="查询" id="spQuery"></span>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">菜单URL</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="MenuUrl" autocomplete="off" placeholder="菜单url">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">菜单图标</label>
+        <div class="layui-input-inline">
+            <input type="text" id="Icon" readonly="readonly" name="MenuIccon" class="layui-input" placeholder="菜单图标">
+        </div>
+        <div style="line-height:40px;float:left;">
+            <a id="sltIcon" href="javascript:;" style="color:blue;">选择图片</a><span id="spnIcon"></span><a href="javascript:;" id="clearIcon">清除</a>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序ID</label>
+        <div class="layui-input-inline">
+            <input type="number" min="0" max="100" maxlength="3" class="layui-input" name="OrderNo" lay-verify="OrderNo" lay-vertype="tips" autocomplete="off">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">状态</label>
+        <div class="layui-input-inline">
+            @Html.StateRadioHtml()
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button lay-submit="" lay-filter="btnSubmit" class="layui-btn layui-btn-normal">保存</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    layui.use(['form', 'common', 'layer'], function () {
+        var $ = layui.$,
+            form = layui.form,
+            layer = layui.layer,
+            common = layui.common;
+        //选择图标
+        $("#sltIcon").on("click", function () {
+            openSetIcon();
+        });
+        //清除图标
+        $('#clearIcon').on('click', function () {
+            $('#Icon').val("");
+            $('#spnIcon').attr("class", "");
+        });
+        //验证
+        form.verify({
+            MenuName: function (value) {
+                if (!$.trim(value))
+                    return "请输入菜单名称";
+            },
+            OrderNo: function (value) {
+                if (!$.trim(value)) {
+                    return "请输入排序ID";
+                }
+            }
+        });
+        //加载树
+        $('#spQuery').on('click', function () {
+            html = "<ul id=\"tree\" class=\"ztree\"></ul>";
+            var index = layer.open({
+                type: 1,
+                content: html,
+                title: '选择菜单',
+                maxmin: false,
+                area: ['450px', '350px']
+            });
+            $.ajax({
+                url: '/System/Menu/GetMenuTree',
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    $.fn.zTree.init($("#tree"), {
+                        view: { selectedMulti: false },
+                        data: {
+                            simpleData: {
+                                enable: true,
+                                idKey: "id",
+                                pIdKey: "pId",
+                                rootPId: 0
+                            }
+                        },
+                        async: {
+                            enable: false
+                        },
+                        callback: {
+                            onClick: function (event, treeId, treeNode) {
+                                $('#spNmae').html(treeNode.name);
+                                $('#txtParentId').val(treeNode.id);
+                                layer.close(index);
+                            }
+                        }
+                    }, data);
+                }
+            });
+        });
+        //提交数据
+        form.on('submit(btnSubmit)', function () {
+            var formData = $('#formForm').serialize();
+            $.post('/System/Menu/AddMenu', formData, function (res) {
+                if (res.State) {
+                    common.msgSuccess(res.Message);
+                    setTimeout(CloseWin, 1500);
+                }
+                else {
+                    common.msgError(res.Message);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+

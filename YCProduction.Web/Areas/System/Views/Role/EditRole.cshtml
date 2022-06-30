@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "EditRole";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+
+<form id="formForm" action="" class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            角色名称
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" name="RoleName" class="layui-input" value="@Model.RoleName" lay-verify="required" lay-vertype="tips" placeholder="角色名称">
+            <input type="hidden" value="@Model.Id" name="Id">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            状态
+        </label>
+        <div class="layui-input-inline">
+            @Html.StateRadioHtml((int)Model.Status)
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            备注
+        </label>
+        <div class="layui-input-inline">
+            <textarea name="Remark" rows="5" cols="60">@Model.Remark</textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button lay-submit="" lay-filter="btnSubmit" class="layui-btn layui-btn-normal">保存</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    layui.use(["form", "common"], function () {
+        var form = layui.form,
+            common = layui.common,
+            $ = layui.$;
+        //提交
+        form.on('submit(btnSubmit)', function () {
+            var formData = $('#formForm').serialize();
+            $.post('/System/Role/EditInfo', formData, function (res) {
+                if (res.State) {
+                    common.msgSuccess(res.Message);
+                    setTimeout(CloseWin, 1500);
+                }
+                else {
+                    common.msgError(res.Message);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+

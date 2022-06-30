@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="images/favicon.ico">
+    <!-- 依 赖 样 式 -->
+    <link href="~/lib/layui-v2.5.4/css/layui.css" asp-append-version="true" rel="stylesheet" />
+    <link href="~/lib/zTree/css/zTreeStyle/zTreeStyle.css" asp-append-version="true" rel="stylesheet" />
+    <link href="~/lib/font-awesome-4.7.0/css/font-awesome.min.css" asp-append-version="true" rel="stylesheet" />
+    <link href="~/css/dialog.css" asp-append-version="true" rel="stylesheet" />
+    <!-- 依 赖 脚 本 -->
+    <script src="~/js/jquery-1.10.2.min.js" asp-append-version="true"></script>
+    <script src="~/lib/layui-v2.5.4/layui.js" asp-append-version="true"></script>
+    <script src="~/lib/zTree/js/jquery.ztree.core.min.js" asp-append-version="true"></script>
+    <script src="~/lib/zTree/js/jquery.ztree.excheck.min.js" asp-append-version="true"></script>
+    <script src="~/js/global.js" asp-append-version="true"></script>
+    <style type="text/css">
+        .layui-input-inline {
+            width: 350px !important;
+        }
+
+        #formForm {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    @RenderBody()
+    <script type="text/javascript">
+        layui.config({
+            base: '/lib/layui-v2.5.4/lay/app/',
+            version: '4546545154'
+        });
+        //关闭页面
+        function CloseWin() {
+            parent.location.reload(); // 父页面刷新
+            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+            parent.layer.close(index); //再执行关闭
+        }
+    </script>
+</body>
+</html>

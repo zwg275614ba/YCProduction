@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "AllotAction";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+<ul id="tree" class="ztree"></ul>
+<div style="position:fixed;right:4%;bottom:4%;">
+    <a class='layui-btn layui-btn-xs' href="javascript:;" id="btnClose">取消</a>
+    <a class='layui-btn layui-btn-xs layui-btn-danger' href="javascript:;" id="btnSave">分配</a>
+</div>
+<script type="text/javascript">
+    var layer = null,
+        common = null;
+    layui.use(['layer','common'], function () {
+        layer = layui.layer;
+        common = layui.common;
+    });
+    $(function () {
+        $.ajax({
+            url: '/System/Action/GetButtonTree/'+@ViewBag.ActionId,
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                $.fn.zTree.init($("#tree"), {
+                    view: { selectedMulti: false },
+                    data: {
+                        simpleData: {
+                            enable: true,
+                            idKey: "id",
+                            pIdKey: "pId",
+                            rootPId: 0
+                        }
+                    },
+                    async: {
+                        enable: false
+                    },
+                    check: {
+                        enable: true,
+                        chkStyle: "checkbox",
+                        chkboxType: { "Y": "ps", "N": "ps" }
+                    }
+                }, data);
+            }
+        });
+        //取消
+        $('#btnClose').unbind('click').bind('click', function () {
+            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+            parent.layer.close(index); //再执行关闭
+        });
+        //提交
+        $('#btnSave').unbind('click').bind('click', function () {
+            var nodesList = [];
+            var treeObj = $.fn.zTree.getZTreeObj("tree");
+            //获取选中的节点
+            var nodes = treeObj.getCheckedNodes(true);
+            if (nodes.length > 0) {
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].pId != 0) {
+                        nodesList.push(nodes[i].id);
+                    }
+                }
+            }
+            $.post('/System/Action/AllotAction', { menuId:@ViewBag.ActionId, ids: nodesList.join(',') }, function (data) {
+                if (data.State) {
+                    common.msgSuccess(data.Message);
+                    setTimeout(function () {
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    }, 1000);
+                }
+                else {
+                    common.msgError(data.Message);
+                }
+            });
+        });
+    })
+</script>
+
