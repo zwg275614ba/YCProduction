@@ -1,0 +1,133 @@
+﻿@model YCProduction.Model.Entitys.Base.BaseCustomerInfo
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+
+<div class="main">
+    <!------------------查询-------------------------->
+    <fieldset class="table-search-fieldset">
+        <legend>搜索信息</legend>
+        <div class="divQuery">
+            <form class="layui-form" action="" id="formSearch">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">联系人</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="Contact" placeholder="联系人" class="layui-input">
+                    </div>
+                    <label class="layui-form-label">客户公司</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="CustomerCompany" placeholder="客户公司" class="layui-input">
+                    </div>
+                    <div class="layui-input-inline btn">
+                        <a href="javascript:;" class="layui-btn layui-btn-sm" id="btnQuery" data-type="reload">
+                            查询
+                        </a>
+                        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+                    </div>
+                    <div class="btn-right">
+                        @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                    </div>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <!------------------表格-------------------------->
+    <div class="divTable">
+        <div class="content">
+            <table id="defaultTable" lay-filter="CustomerInfoTable"></table>
+        </div>
+    </div>
+    <!-------------------工具栏------------------------->
+    <script type="text/html" id="toolBar">
+        @Html.ToolBarHtml(ViewData["ActionList"])
+    </script>
+</div>
+
+
+<script type="text/javascript">
+    layui.use(['form', 'table', 'common'], function () {
+        var form = layui.form,
+            common = layui.common,
+            table = layui.table,
+            $ = layui.$;
+        //渲染表格
+        table.render({
+            id: 'defaultReload',
+            elem: '#defaultTable',
+            height: 'full-140',
+            url: '/Base/CustomerInfo/GetCustomerInfoList',
+            toolbar: true,
+            page: true,
+            cols: [[
+                { field: 'CustomerCompany', title: '@Html.DisplayNameFor(a=>a.CustomerCompany)', sort: true, width:300  },
+                { field: 'LegalPerson', title: '@Html.DisplayNameFor(a=>a.LegalPerson)', sort: true, width: 200 },
+                { field: 'Contact', title: '@Html.DisplayNameFor(a=>a.Contact)', sort: true, width: 200},
+                { field: 'Phone', title: '@Html.DisplayNameFor(a=>a.Phone)', sort: true, width: 200 },
+                { field: 'Remark', title: '@Html.DisplayNameFor(a=>a.Remark)', sort: true },
+                { field: '', title: '操作', toolbar: '#toolBar',width:200 }
+            ]]
+        });
+        var active = {
+            reload: function () {
+                var jsonWhere = urlToJson($("#formSearch").serialize());
+                //执行重载
+                table.reload('defaultReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                  , where: jsonWhere
+                });
+            }
+        };
+        //服务器排序
+        table.on('sort(CustomerInfoTable)', function (obj) {
+            table.reload('defaultReload', {
+                initSort: obj
+              , where: { //请求参数
+                  field: obj.field //排序字段
+                , order: obj.type //排序方式
+              }
+            });
+        });
+        //查询
+        $("#btnQuery").on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+        //添加
+        $('#btnAdd').on('click', function () {
+            common.openTop({
+                title: '添加客户信息', w: '100%', h: '100%', content: '/Base/CustomerInfo/AddCustomerInfo'
+            });
+        });
+        //监听工具栏
+        table.on('tool(CustomerInfoTable)', function (obj) {
+            var data = obj.data;
+            //编辑
+            if (obj.event === 'edit') {
+                if (data.Id > 0) {
+                    common.openTop({
+                        title: '编辑客户信息', w: '100%', h: '100%', content: '/Base/CustomerInfo/EditCustomerInfo/' + data.Id
+                    });
+                }
+            }//删除
+            else if (obj.event === 'del') {
+                if (data.Id > 0) {
+                    layer.confirm('确定要删除该条数据', function (index) {
+                        $.post('/Base/CustomerInfo/DelInfo', { id: data.Id }, function (data) {
+                            if (data.State) {
+                                obj.del();//删除这一行
+                                tipSuccess(data.Message);
+                            }
+                            else {
+                                tipError(data.Message);
+                            }
+                            layer.close(index);//关闭弹框
+                        });
+                    });
+                }
+            }
+        });
+    });
+</script>

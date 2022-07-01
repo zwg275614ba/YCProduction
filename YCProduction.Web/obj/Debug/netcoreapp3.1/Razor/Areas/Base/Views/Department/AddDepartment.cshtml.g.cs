@@ -12,11 +12,52 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 1 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\_ViewImports.cshtml"
+using YCProduction.Web;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\_ViewImports.cshtml"
+using YCProduction.Web.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4ce4b79513595ccd8df8b2270786fcaa16303fab", @"/Areas/Base/Views/Department/AddDepartment.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a4d0169f17ef362daab9a3ba68048e1cab380ed7", @"/Areas/Base/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Base_Views_Department_AddDepartment : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
     {
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("layui-form"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("action", new global::Microsoft.AspNetCore.Html.HtmlString(""), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("id", new global::Microsoft.AspNetCore.Html.HtmlString("formForm"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        #line hidden
+        #pragma warning disable 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
+        #pragma warning restore 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner __tagHelperRunner = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner();
+        #pragma warning disable 0169
+        private string __tagHelperStringValueBuffer;
+        #pragma warning restore 0169
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __backed__tagHelperScopeManager = null;
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __tagHelperScopeManager
+        {
+            get
+            {
+                if (__backed__tagHelperScopeManager == null)
+                {
+                    __backed__tagHelperScopeManager = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager(StartTagHelperWritingScope, EndTagHelperWritingScope);
+                }
+                return __backed__tagHelperScopeManager;
+            }
+        }
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -30,10 +71,9 @@ namespace AspNetCore
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n<style type=\"text/css\">\r\n    .box-line {\r\n        border-bottom: solid 1px #ccc;\r\n        height: 30px;\r\n    }\r\n\r\n    .layui-input-inline span {\r\n        cursor: pointer;\r\n    }\r\n</style>\r\n<form class=\"layui-form\"");
-            BeginWriteAttribute("action", " action=\"", 317, "\"", 326, 0);
-            EndWriteAttribute();
-            WriteLiteral(@" method=""post"" id=""formForm"">
+            WriteLiteral("\r\n<style type=\"text/css\">\r\n    .box-line {\r\n        border-bottom: solid 1px #ccc;\r\n        height: 30px;\r\n    }\r\n\r\n    .layui-input-inline span {\r\n        cursor: pointer;\r\n    }\r\n</style>\r\n");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4ce4b79513595ccd8df8b2270786fcaa16303fab5332", async() => {
+                WriteLiteral(@"
     <div class=""layui-form-item"">
         <label class=""layui-form-label"">部门名称</label>
         <div class=""layui-input-inline"">
@@ -53,8 +93,8 @@ namespace AspNetCore
             <input type=""hidden"" autocomplete=""off"" name=""ParentId"" id=""txtParentId"" class=""layui-input"">
         </div>
         <div style=""line-height:40px;float:left;"">
-       ");
-            WriteLiteral(@"     <span class=""fa fa-search"" title=""查询"" id=""spQuery""></span>
+            <span class=""fa fa-searc");
+                WriteLiteral(@"h"" title=""查询"" id=""spQuery""></span>
         </div>
     </div>
     <div class=""layui-form-item"">
@@ -78,13 +118,28 @@ namespace AspNetCore
     <div class=""layui-form-item"">
         <div class=""layui-input-block"">
             <button");
-            BeginWriteAttribute("lay-submit", " lay-submit=\"", 2318, "\"", 2331, 0);
-            EndWriteAttribute();
-            WriteLiteral(@" lay-filter=""btnSubmit"" class=""layui-btn layui-btn-normal"">保存</button>
-            <button type=""reset"" class=""layui-btn layui-btn-primary"">重置</button>
-        </div>
-    </div>
-</form>
+                BeginWriteAttribute("lay-submit", " lay-submit=\"", 2318, "\"", 2331, 0);
+                EndWriteAttribute();
+                WriteLiteral(" lay-filter=\"btnSubmit\" class=\"layui-btn layui-btn-normal\">保存</button>\r\n            <button type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button>\r\n        </div>\r\n    </div>\r\n");
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_1);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper.Method = (string)__tagHelperAttribute_2.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_3);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            WriteLiteral(@"
 <script type=""text/javascript"">
     layui.use(['form', 'common', 'layer'], function () {
         var $ = layui.$,
@@ -110,13 +165,13 @@ namespace AspNetCore
                 type: 1,
                 content: html,
                 title: '选择部门',
-             ");
-            WriteLiteral(@"   maxmin: false,
+                maxmin: false,
                 area: ['450px', '350px']
             });
             $.ajax({
                 url: '/Base/Department/GetDepartmentTree',
-                type: 'post',
+                type: 'post',");
+            WriteLiteral(@"
                 dataType: 'json',
                 success: function (data) {
                     $.fn.zTree.init($(""#tree""), {
@@ -135,14 +190,14 @@ namespace AspNetCore
                         callback: {
                             onClick: function (event, treeId, treeNode) {
                                 $('#spNmae').html(treeNode.name);
-                                $('#txtPar");
-            WriteLiteral(@"entId').val(treeNode.id);
+                                $('#txtParentId').val(treeNode.id);
                                 layer.close(index);
                             }
                         }
                     }, data);
                 }
-            });
+ ");
+            WriteLiteral(@"           });
         });
         //提交数据
         form.on('submit(btnSubmit)', function () {

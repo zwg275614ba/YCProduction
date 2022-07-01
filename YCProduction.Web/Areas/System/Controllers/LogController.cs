@@ -13,7 +13,6 @@ using YCProduction.Web.Controllers;
 namespace YCProduction.Web.Areas.System.Controllers
 {
     [Area("System")]
-    [Authorize]
     public class LogController : BaseController
     {
         private readonly ISysLogService _sysLogService;
@@ -21,12 +20,6 @@ namespace YCProduction.Web.Areas.System.Controllers
         public LogController(ISysUserRoleService sysUserRoleService, ISysActionService sysActionService, ISysLogService sysLogService) : base(sysUserRoleService, sysActionService)
         {
             this._sysLogService = sysLogService;
-        }
-        public IActionResult Index()
-        {
-            ViewData["ActionList"] = GetToolBar(MenuId, 0);
-            ViewData["ActionFormRightTop"] = GetToolBar(MenuId, ButtonPosition.OutForm);
-            return View();
         }
 
         #region 列表

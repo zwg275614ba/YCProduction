@@ -17,6 +17,55 @@ namespace YCProduction.IRepository.Migrations
                 .HasAnnotation("ProductVersion", "3.1.26")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("YCProduction.Model.Entitys.Base.BaseCustomerInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Bank")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Contact")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("CustomerCompany")
+                        .HasColumnType("varchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("CustomerId")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("LegalPerson")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("OpenAccount")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Position")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Base_CustomerInfo");
+                });
+
             modelBuilder.Entity("YCProduction.Model.Entitys.Base.BaseDepartment", b =>
                 {
                     b.Property<int>("Id")

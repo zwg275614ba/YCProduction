@@ -12,11 +12,52 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 1 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\_ViewImports.cshtml"
+using YCProduction.Web;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\_ViewImports.cshtml"
+using YCProduction.Web.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ad3d1d73b6391872aa97729d654e260f76627ccf", @"/Areas/Base/Views/Department/EditDepartment.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a4d0169f17ef362daab9a3ba68048e1cab380ed7", @"/Areas/Base/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Base_Views_Department_EditDepartment : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
     {
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("layui-form"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("action", new global::Microsoft.AspNetCore.Html.HtmlString(""), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("id", new global::Microsoft.AspNetCore.Html.HtmlString("formForm"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        #line hidden
+        #pragma warning disable 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
+        #pragma warning restore 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner __tagHelperRunner = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner();
+        #pragma warning disable 0169
+        private string __tagHelperStringValueBuffer;
+        #pragma warning restore 0169
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __backed__tagHelperScopeManager = null;
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __tagHelperScopeManager
+        {
+            get
+            {
+                if (__backed__tagHelperScopeManager == null)
+                {
+                    __backed__tagHelperScopeManager = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager(StartTagHelperWritingScope, EndTagHelperWritingScope);
+                }
+                return __backed__tagHelperScopeManager;
+            }
+        }
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -30,11 +71,10 @@ namespace AspNetCore
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n<style type=\"text/css\">\r\n    .box-line {\r\n        border-bottom: solid 1px #ccc;\r\n        height: 30px;\r\n    }\r\n\r\n    .layui-input-inline span {\r\n        cursor: pointer;\r\n    }\r\n</style>\r\n<form class=\"layui-form\"");
-            BeginWriteAttribute("action", " action=\"", 318, "\"", 327, 0);
-            EndWriteAttribute();
-            WriteLiteral(" method=\"post\" id=\"formForm\">\r\n    <div class=\"layui-form-item\">\r\n        <label class=\"layui-form-label\">部门名称</label>\r\n        <div class=\"layui-input-inline\">\r\n            <input type=\"text\" name=\"DepartmentName\" lay-verify=\"DepartmentName\"");
-            BeginWriteAttribute("value", " value=\"", 570, "\"", 599, 1);
+            WriteLiteral("\r\n<style type=\"text/css\">\r\n    .box-line {\r\n        border-bottom: solid 1px #ccc;\r\n        height: 30px;\r\n    }\r\n\r\n    .layui-input-inline span {\r\n        cursor: pointer;\r\n    }\r\n</style>\r\n");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad3d1d73b6391872aa97729d654e260f76627ccf5339", async() => {
+                WriteLiteral("\r\n    <div class=\"layui-form-item\">\r\n        <label class=\"layui-form-label\">部门名称</label>\r\n        <div class=\"layui-input-inline\">\r\n            <input type=\"text\" name=\"DepartmentName\" lay-verify=\"DepartmentName\"");
+                BeginWriteAttribute("value", " value=\"", 570, "\"", 599, 1);
 #nullable restore
 #line 21 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\Department\EditDepartment.cshtml"
 WriteAttributeValue("", 578, Model.DepartmentName, 578, 21, false);
@@ -42,9 +82,9 @@ WriteAttributeValue("", 578, Model.DepartmentName, 578, 21, false);
 #line default
 #line hidden
 #nullable disable
-            EndWriteAttribute();
-            WriteLiteral(" class=\"layui-input\" autocomplete=\"off\" lay-vertype=\"tips\" placeholder=\"部门名称\">\r\n            <input type=\"hidden\" name=\"Id\"");
-            BeginWriteAttribute("value", " value=\"", 722, "\"", 739, 1);
+                EndWriteAttribute();
+                WriteLiteral(" class=\"layui-input\" autocomplete=\"off\" lay-vertype=\"tips\" placeholder=\"部门名称\">\r\n            <input type=\"hidden\" name=\"Id\"");
+                BeginWriteAttribute("value", " value=\"", 722, "\"", 739, 1);
 #nullable restore
 #line 22 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\Department\EditDepartment.cshtml"
 WriteAttributeValue("", 730, Model.Id, 730, 9, false);
@@ -52,9 +92,9 @@ WriteAttributeValue("", 730, Model.Id, 730, 9, false);
 #line default
 #line hidden
 #nullable disable
-            EndWriteAttribute();
-            WriteLiteral(">\r\n        </div>\r\n    </div>\r\n    <div class=\"layui-form-item\">\r\n        <label class=\"layui-form-label\">部门ID</label>\r\n        <div class=\"layui-input-inline\">\r\n            <input type=\"text\" name=\"DepartmentId\" lay-verify=\"DepartmentId\"");
-            BeginWriteAttribute("value", " value=\"", 978, "\"", 1005, 1);
+                EndWriteAttribute();
+                WriteLiteral(">\r\n        </div>\r\n    </div>\r\n    <div class=\"layui-form-item\">\r\n        <label class=\"layui-form-label\">部门ID</label>\r\n        <div class=\"layui-input-inline\">\r\n            <input type=\"text\" name=\"DepartmentId\" lay-verify=\"DepartmentId\"");
+                BeginWriteAttribute("value", " value=\"", 978, "\"", 1005, 1);
 #nullable restore
 #line 28 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\Department\EditDepartment.cshtml"
 WriteAttributeValue("", 986, Model.DepartmentId, 986, 19, false);
@@ -62,8 +102,8 @@ WriteAttributeValue("", 986, Model.DepartmentId, 986, 19, false);
 #line default
 #line hidden
 #nullable disable
-            EndWriteAttribute();
-            WriteLiteral(@" class=""layui-input"" autocomplete=""off"" lay-vertype=""tips"" placeholder=""部门ID"">
+                EndWriteAttribute();
+                WriteLiteral(@" class=""layui-input"" autocomplete=""off"" lay-vertype=""tips"" placeholder=""部门ID"">
         </div>
     </div>
     <div class=""layui-form-item"">
@@ -77,8 +117,8 @@ WriteAttributeValue("", 986, Model.DepartmentId, 986, 19, false);
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("</span>\r\n            <input type=\"hidden\" autocomplete=\"off\" name=\"ParentId\" id=\"txtParentId\"");
-            BeginWriteAttribute("value", " value=\"", 1394, "\"", 1417, 1);
+                WriteLiteral("</span>\r\n            <input type=\"hidden\" autocomplete=\"off\" name=\"ParentId\" id=\"txtParentId\"");
+                BeginWriteAttribute("value", " value=\"", 1394, "\"", 1417, 1);
 #nullable restore
 #line 35 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\Department\EditDepartment.cshtml"
 WriteAttributeValue("", 1402, Model.ParentId, 1402, 15, false);
@@ -86,8 +126,8 @@ WriteAttributeValue("", 1402, Model.ParentId, 1402, 15, false);
 #line default
 #line hidden
 #nullable disable
-            EndWriteAttribute();
-            WriteLiteral(@" class=""layui-input"">
+                EndWriteAttribute();
+                WriteLiteral(@" class=""layui-input"">
         </div>
         <div style=""line-height:40px;float:left;"">
             <span class=""fa fa-search"" title=""查询"" id=""spQuery""></span>
@@ -97,7 +137,7 @@ WriteAttributeValue("", 1402, Model.ParentId, 1402, 15, false);
         <label class=""layui-form-label"">人数</label>
         <div class=""layui-input-inline"">
             <input type=""text"" class=""layui-input""");
-            BeginWriteAttribute("value", " value=\"", 1788, "\"", 1809, 1);
+                BeginWriteAttribute("value", " value=\"", 1788, "\"", 1809, 1);
 #nullable restore
 #line 44 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\Department\EditDepartment.cshtml"
 WriteAttributeValue("", 1796, Model.Counts, 1796, 13, false);
@@ -105,15 +145,15 @@ WriteAttributeValue("", 1796, Model.Counts, 1796, 13, false);
 #line default
 #line hidden
 #nullable disable
-            EndWriteAttribute();
-            WriteLiteral(@" name=""Counts"" autocomplete=""off"" placeholder=""人数"">
+                EndWriteAttribute();
+                WriteLiteral(@" name=""Counts"" autocomplete=""off"" placeholder=""人数"">
         </div>
     </div>
     <div class=""layui-form-item"">
         <label class=""layui-form-label"">职责</label>
         <div class=""layui-input-inline"">
             <input type=""text"" class=""layui-input"" name=""Duty""");
-            BeginWriteAttribute("value", " value=\"", 2082, "\"", 2101, 1);
+                BeginWriteAttribute("value", " value=\"", 2082, "\"", 2101, 1);
 #nullable restore
 #line 50 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\Department\EditDepartment.cshtml"
 WriteAttributeValue("", 2090, Model.Duty, 2090, 11, false);
@@ -121,15 +161,15 @@ WriteAttributeValue("", 2090, Model.Duty, 2090, 11, false);
 #line default
 #line hidden
 #nullable disable
-            EndWriteAttribute();
-            WriteLiteral(@" autocomplete=""off"" placeholder=""职责"">
+                EndWriteAttribute();
+                WriteLiteral(@" autocomplete=""off"" placeholder=""职责"">
         </div>
     </div>
     <div class=""layui-form-item"">
         <label class=""layui-form-label"">备注</label>
         <div class=""layui-input-inline"">
             <input type=""text"" class=""layui-input"" name=""Remarks""");
-            BeginWriteAttribute("value", " value=\"", 2363, "\"", 2385, 1);
+                BeginWriteAttribute("value", " value=\"", 2363, "\"", 2385, 1);
 #nullable restore
 #line 56 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\Department\EditDepartment.cshtml"
 WriteAttributeValue("", 2371, Model.Remarks, 2371, 14, false);
@@ -137,15 +177,30 @@ WriteAttributeValue("", 2371, Model.Remarks, 2371, 14, false);
 #line default
 #line hidden
 #nullable disable
-            EndWriteAttribute();
-            WriteLiteral(" autocomplete=\"off\" placeholder=\"备注\">\r\n        </div>\r\n    </div>\r\n    <div class=\"layui-form-item\">\r\n        <div class=\"layui-input-block\">\r\n            <button");
-            BeginWriteAttribute("lay-submit", " lay-submit=\"", 2548, "\"", 2561, 0);
-            EndWriteAttribute();
-            WriteLiteral(@" lay-filter=""btnSubmit"" class=""layui-btn layui-btn-normal"">保存</button>
-            <button type=""reset"" class=""layui-btn layui-btn-primary"">重置</button>
-        </div>
-    </div>
-</form>
+                EndWriteAttribute();
+                WriteLiteral(" autocomplete=\"off\" placeholder=\"备注\">\r\n        </div>\r\n    </div>\r\n    <div class=\"layui-form-item\">\r\n        <div class=\"layui-input-block\">\r\n            <button");
+                BeginWriteAttribute("lay-submit", " lay-submit=\"", 2548, "\"", 2561, 0);
+                EndWriteAttribute();
+                WriteLiteral(" lay-filter=\"btnSubmit\" class=\"layui-btn layui-btn-normal\">保存</button>\r\n            <button type=\"reset\" class=\"layui-btn layui-btn-primary\">重置</button>\r\n        </div>\r\n    </div>\r\n");
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_1);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper.Method = (string)__tagHelperAttribute_2.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_3);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            WriteLiteral(@"
 <script type=""text/javascript"">
     layui.use(['form', 'common', 'layer'], function () {
         var $ = layui.$,
@@ -171,13 +226,13 @@ WriteAttributeValue("", 2371, Model.Remarks, 2371, 14, false);
                 type: 1,
                 content: html,
                 title: '选择部门',
-             ");
-            WriteLiteral(@"   maxmin: false,
+                maxmin: false,
                 area: ['450px', '350px']
             });
             $.ajax({
                 url: '/Base/Department/GetDepartmentTree',
-                type: 'post',
+                type: 'post',");
+            WriteLiteral(@"
                 dataType: 'json',
                 success: function (data) {
                     $.fn.zTree.init($(""#tree""), {
@@ -196,14 +251,14 @@ WriteAttributeValue("", 2371, Model.Remarks, 2371, 14, false);
                         callback: {
                             onClick: function (event, treeId, treeNode) {
                                 $('#spNmae').html(treeNode.name);
-                                $('#txtPar");
-            WriteLiteral(@"entId').val(treeNode.id);
+                                $('#txtParentId').val(treeNode.id);
                                 layer.close(index);
                             }
                         }
                     }, data);
                 }
-            });
+ ");
+            WriteLiteral(@"           });
         });
         //提交数据
         form.on('submit(btnSubmit)', function () {

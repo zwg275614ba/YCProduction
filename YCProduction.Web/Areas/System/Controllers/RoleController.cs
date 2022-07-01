@@ -16,7 +16,6 @@ using YCProduction.Web.Controllers;
 namespace YCProduction.Web.Areas.System.Controllers
 {
     [Area("System")]
-    [Authorize]
     public class RoleController : BaseController
     {
         private readonly ISysActionService _sysActionService;
@@ -39,12 +38,6 @@ namespace YCProduction.Web.Areas.System.Controllers
             this._sysMenuService = sysMenuService;
             this._sysRoleMenuActionService = sysRoleMenuActionService;
             this._sysMenuActionService = sysMenuActionService;
-        }
-        public IActionResult Index()
-        {
-            ViewData["ActionList"] = GetToolBar(MenuId, 0);
-            ViewData["ActionFormRightTop"] = GetToolBar(MenuId, ButtonPosition.OutForm);
-            return View();
         }
 
         #region 列表

@@ -1,0 +1,114 @@
+﻿@model YCProduction.Model.Entitys.Base.BaseCustomerInfo
+@{
+    ViewData["Title"] = "EditCustomerInfo";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+<style type="text/css">
+    .layui-input-inline {
+        width: 550px !important;
+    }
+</style>
+<form class="layui-form" action="" method="post" id="formForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">客户Id</label>
+        <div class="layui-input-inline">
+            <input type="text" asp-for="CustomerId" lay-verify="CustomerId" class="layui-input" autocomplete="off" lay-vertype="tips" placeholder="客户Id">
+            <input type="hidden" asp-for="Id">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">客户公司</label>
+        <div class="layui-input-inline">
+            <input type="text" asp-for="CustomerCompany" lay-verify="CustomerCompany" class="layui-input" autocomplete="off" lay-vertype="tips" placeholder="客户公司">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">法人代表</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" asp-for="LegalPerson" autocomplete="off" placeholder="法人代表">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系人</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" asp-for="Contact" autocomplete="off" placeholder="联系人">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">职务</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" asp-for="Position" autocomplete="off" placeholder="职务">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系电话</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" asp-for="Phone" autocomplete="off" placeholder="联系电话">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">开户银行</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" asp-for="Bank" autocomplete="off" placeholder="开户银行">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">开户账号</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" asp-for="OpenAccount" autocomplete="off" placeholder="开户账号">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系地址</label>
+        <div class="layui-input-inline">
+            <textarea asp-for="Address" class="layui-textarea" autocomplete="off" placeholder="联系地址" rows="5"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-inline">
+            <textarea asp-for="Remark" class="layui-textarea" autocomplete="off" placeholder="备注" rows="5"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button lay-submit="" lay-filter="btnSubmit" class="layui-btn layui-btn-normal">保存</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    layui.use(['form', 'common', 'layer'], function () {
+        var $ = layui.$,
+            form = layui.form,
+            layer = layui.layer,
+            common = layui.common;
+        //验证
+        form.verify({
+            CustomerId: function (value) {
+                if (!$.trim(value))
+                    return "客户Id必填";
+            },
+            CustomerCompany: function (value) {
+                if (!$.trim(value)) {
+                    return "客户公司必填";
+                }
+            }
+        });
+        //提交数据
+        form.on('submit(btnSubmit)', function () {
+            var formData = $('#formForm').serialize();
+            $.post('/Base/CustomerInfo/EditCustomerInfo', formData, function (res) {
+                if (res.State) {
+                    window.parent.tipSuccess(res.Message);
+                    setTimeout(CloseWin, 1500);
+                }
+                else {
+                    window.parent.tipError(res.Message);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+

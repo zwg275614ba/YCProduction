@@ -16,7 +16,6 @@ using YCProduction.Web.Controllers;
 namespace YCProduction.Web.Areas.Base.Controllers
 {
     [Area("Base")]
-    [Authorize]
     public class DepartmentController : BaseController
     {
         private readonly IBaseDepartmentService _baseDepartmentService;
@@ -27,12 +26,6 @@ namespace YCProduction.Web.Areas.Base.Controllers
             : base(sysUserRoleService, sysActionService)
         {
             this._baseDepartmentService = baseDepartmentService;
-        }
-        public IActionResult Index()
-        {
-            ViewData["ActionList"] = GetToolBar(MenuId, 0);
-            ViewData["ActionFormRightTop"] = GetToolBar(MenuId, ButtonPosition.OutForm);
-            return View();
         }
 
         #region 列表

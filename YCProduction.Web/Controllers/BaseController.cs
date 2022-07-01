@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using YCProduction.Model.Entitys.Values;
 
 namespace YCProduction.Web.Controllers
 {
+    [Authorize]
     public class BaseController : Controller
     {
         private readonly ISysUserRoleService _sysUserRoleService;
@@ -18,6 +20,13 @@ namespace YCProduction.Web.Controllers
         {
             this._sysUserRoleService = sysUserRoleService;
             this._sysActionService = sysActionService;
+        }
+
+        public virtual IActionResult Index()
+        {
+            ViewData["ActionList"] = GetToolBar(MenuId, 0);
+            ViewData["ActionFormRightTop"] = GetToolBar(MenuId, ButtonPosition.OutForm);
+            return View();
         }
         public BaseController() { }
         /// <summary>

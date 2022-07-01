@@ -24,7 +24,7 @@ namespace YCProduction.Web
     {
         public Startup(IConfiguration configuration)
         {
-              Configuration = configuration;
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -34,7 +34,6 @@ namespace YCProduction.Web
         {
             services.AddControllersWithViews();
             services.AddTransient(typeof(YCProductionDBContext));
-            //services.AddTransient<ISysUserRepository, SysUserRepository>();
             //配置链接数据库字符串
             services.AddDbContext<YCProductionDBContext>(options => options.UseMySQL(Configuration.GetConnectionString("MySqlConnectionString")));
             //配置鉴权
@@ -50,7 +49,7 @@ namespace YCProduction.Web
                 //数据格式按原样输出  --此选项开启默认属性输出 
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
-            services.Configure<SysAdminLoginConfig>(Configuration.GetSection("Login")) ;
+            services.Configure<SysAdminLoginConfig>(Configuration.GetSection("Login"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

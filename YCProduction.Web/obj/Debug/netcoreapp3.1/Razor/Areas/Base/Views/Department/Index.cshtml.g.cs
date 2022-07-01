@@ -12,11 +12,51 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 1 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\_ViewImports.cshtml"
+using YCProduction.Web;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\_ViewImports.cshtml"
+using YCProduction.Web.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b8fc03e002b82ea37732157926906b7c2f7a4cf4", @"/Areas/Base/Views/Department/Index.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a4d0169f17ef362daab9a3ba68048e1cab380ed7", @"/Areas/Base/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Base_Views_Department_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
     {
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("layui-form"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("action", new global::Microsoft.AspNetCore.Html.HtmlString(""), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("id", new global::Microsoft.AspNetCore.Html.HtmlString("formSearch"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        #line hidden
+        #pragma warning disable 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
+        #pragma warning restore 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner __tagHelperRunner = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner();
+        #pragma warning disable 0169
+        private string __tagHelperStringValueBuffer;
+        #pragma warning restore 0169
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __backed__tagHelperScopeManager = null;
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __tagHelperScopeManager
+        {
+            get
+            {
+                if (__backed__tagHelperScopeManager == null)
+                {
+                    __backed__tagHelperScopeManager = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager(StartTagHelperWritingScope, EndTagHelperWritingScope);
+                }
+                return __backed__tagHelperScopeManager;
+            }
+        }
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -30,10 +70,9 @@ namespace AspNetCore
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n<div class=\"main\">\r\n    <!------------------查询-------------------------->\r\n    <div class=\"divQuery\">\r\n        <form class=\"layui-form\"");
-            BeginWriteAttribute("action", " action=\"", 231, "\"", 240, 0);
-            EndWriteAttribute();
-            WriteLiteral(" id=\"formSearch\">\r\n            <div class=\"layui-form-item\">\r\n                <div class=\"btn-right\">\r\n                    ");
+            WriteLiteral("\r\n<div class=\"main\">\r\n    <!------------------查询-------------------------->\r\n    <div class=\"divQuery\">\r\n        ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b8fc03e002b82ea37732157926906b7c2f7a4cf44893", async() => {
+                WriteLiteral("\r\n            <div class=\"layui-form-item\">\r\n                <div class=\"btn-right\">\r\n                    ");
 #nullable restore
 #line 13 "C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\Areas\Base\Views\Department\Index.cshtml"
                Write(Html.TopToolBarHtml(ViewData["ActionFormRightTop"]));
@@ -41,10 +80,24 @@ namespace AspNetCore
 #line default
 #line hidden
 #nullable disable
+                WriteLiteral("\r\n                </div>\r\n            </div>\r\n        ");
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_1);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(@"
-                </div>
-            </div>
-        </form>
     </div>
     <!------------------表格-------------------------->
     <div class=""divTable"">

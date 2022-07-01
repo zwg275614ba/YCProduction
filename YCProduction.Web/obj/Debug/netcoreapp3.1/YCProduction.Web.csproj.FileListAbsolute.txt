@@ -203,3 +203,7 @@ C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netc
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Department\Index.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Department\AddDepartment.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Department\EditDepartment.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\CustomerInfo\Index.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\CustomerInfo\AddCustomerInfo.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\_ViewImports.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\CustomerInfo\EditCustomerInfo.cshtml.g.cs
