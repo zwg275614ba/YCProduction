@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewData["Title"] = "EditDepartment";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+
+<style type="text/css">
+    .box-line {
+        border-bottom: solid 1px #ccc;
+        height: 30px;
+    }
+
+    .layui-input-inline span {
+        cursor: pointer;
+    }
+</style>
+<form class="layui-form" action="" method="post" id="formForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">部门名称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="DepartmentName" lay-verify="DepartmentName" value="@Model.DepartmentName" class="layui-input" autocomplete="off" lay-vertype="tips" placeholder="部门名称">
+            <input type="hidden" name="Id" value="@Model.Id">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">部门ID</label>
+        <div class="layui-input-inline">
+            <input type="text" name="DepartmentId" lay-verify="DepartmentId" value="@Model.DepartmentId" class="layui-input" autocomplete="off" lay-vertype="tips" placeholder="部门ID">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">父级</label>
+        <div class="layui-input-inline box-line">
+            <span id="spNmae">@ViewBag.ParentName</span>
+            <input type="hidden" autocomplete="off" name="ParentId" id="txtParentId" value="@Model.ParentId" class="layui-input">
+        </div>
+        <div style="line-height:40px;float:left;">
+            <span class="fa fa-search" title="查询" id="spQuery"></span>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">人数</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" value="@Model.Counts" name="Counts" autocomplete="off" placeholder="人数">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">职责</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="Duty" value="@Model.Duty" autocomplete="off" placeholder="职责">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="Remarks" value="@Model.Remarks" autocomplete="off" placeholder="备注">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button lay-submit="" lay-filter="btnSubmit" class="layui-btn layui-btn-normal">保存</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    layui.use(['form', 'common', 'layer'], function () {
+        var $ = layui.$,
+            form = layui.form,
+            layer = layui.layer,
+            common = layui.common;
+        //验证
+        form.verify({
+            DepartmentName: function (value) {
+                if (!$.trim(value))
+                    return "请输入部门名称";
+            },
+            DepartmentId: function (value) {
+                if (!$.trim(value)) {
+                    return "请输入部门ID";
+                }
+            }
+        });
+        //加载树
+        $('#spQuery').on('click', function () {
+            html = "<ul id=\"tree\" class=\"ztree\"></ul>";
+            var index = layer.open({
+                type: 1,
+                content: html,
+                title: '选择部门',
+                maxmin: false,
+                area: ['450px', '350px']
+            });
+            $.ajax({
+                url: '/Base/Department/GetDepartmentTree',
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    $.fn.zTree.init($("#tree"), {
+                        view: { selectedMulti: false },
+                        data: {
+                            simpleData: {
+                                enable: true,
+                                idKey: "id",
+                                pIdKey: "pId",
+                                rootPId: 0
+                            }
+                        },
+                        async: {
+                            enable: false
+                        },
+                        callback: {
+                            onClick: function (event, treeId, treeNode) {
+                                $('#spNmae').html(treeNode.name);
+                                $('#txtParentId').val(treeNode.id);
+                                layer.close(index);
+                            }
+                        }
+                    }, data);
+                }
+            });
+        });
+        //提交数据
+        form.on('submit(btnSubmit)', function () {
+            var formData = $('#formForm').serialize();
+            $.post('/Base/Department/EditDepartment', formData, function (res) {
+                if (res.State) {
+                    window.parent.tipSuccess(res.Message);
+                    setTimeout(CloseWin, 1500);
+                }
+                else {
+                    window.parent.tipError(res.Message);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+

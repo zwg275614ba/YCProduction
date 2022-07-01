@@ -17,6 +17,40 @@ namespace YCProduction.IRepository.Migrations
                 .HasAnnotation("ProductVersion", "3.1.26")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("YCProduction.Model.Entitys.Base.BaseDepartment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Assessment")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("Counts")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DepartmentId")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("DepartmentName")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Duty")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Remarks")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Base_Department");
+                });
+
             modelBuilder.Entity("YCProduction.Model.Entitys.System.SysAction", b =>
                 {
                     b.Property<int>("Id")

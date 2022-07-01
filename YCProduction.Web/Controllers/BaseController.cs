@@ -19,6 +19,7 @@ namespace YCProduction.Web.Controllers
             this._sysUserRoleService = sysUserRoleService;
             this._sysActionService = sysActionService;
         }
+        public BaseController() { }
         /// <summary>
         /// 获取菜单id
         /// </summary>

@@ -200,3 +200,6 @@ C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netc
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\YCProduction.Web.genruntimeconfig.cache
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\Home.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\System\Views\User\EditPwd.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Department\Index.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Department\AddDepartment.cshtml.g.cs
+C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Department\EditDepartment.cshtml.g.cs
