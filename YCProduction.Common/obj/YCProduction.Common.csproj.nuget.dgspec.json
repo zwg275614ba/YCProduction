@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {}
+    "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
+    "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
         "projectName": "YCProduction.Common",
-        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
+        "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

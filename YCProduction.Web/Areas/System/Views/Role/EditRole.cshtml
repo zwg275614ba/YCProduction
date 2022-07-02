@@ -38,25 +38,28 @@
     </div>
 </form>
 
-<script type="text/javascript">
-    layui.use(["form", "common"], function () {
-        var form = layui.form,
-            common = layui.common,
-            $ = layui.$;
-        //提交
-        form.on('submit(btnSubmit)', function () {
-            var formData = $('#formForm').serialize();
-            $.post('/System/Role/EditInfo', formData, function (res) {
-                if (res.State) {
-                    setTimeout(CloseWin, 1500);
-                    window.parent.tipSuccess(res.Message);
-                }
-                else {
-                    window.parent.tipError(res.Message);
-                }
+@section scripts{
+    <script type="text/javascript">
+        layui.use(["form", "common"], function () {
+            var form = layui.form,
+                common = layui.common,
+                $ = layui.$;
+            //提交
+            form.on('submit(btnSubmit)', function () {
+                var formData = $('#formForm').serialize();
+                $.post('/System/Role/EditInfo', formData, function (res) {
+                    if (res.State) {
+                        setTimeout(CloseWin, 1500);
+                        window.parent.tipSuccess(res.Message);
+                    }
+                    else {
+                        window.parent.tipError(res.Message);
+                    }
+                });
+                return false;
             });
-            return false;
         });
-    });
-</script>
+    </script>
+}
+
 

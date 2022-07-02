@@ -12,40 +12,43 @@
         </div>
     </div>
     <div class="layui-input-block">
-        <button type="button" class="layui-btn layui-btn-primary" id="btnClose">取消</button>
         <button lay-submit="" lay-filter="btnSubmit" class="layui-btn layui-btn-normal">保存</button>
+        <button type="button" class="layui-btn layui-btn-primary" id="btnClose">取消</button>
     </div>
 </form>
-<script type="text/javascript">
-    layui.use(['form', 'common'], function () {
-        var $ = layui.$,
-            form = layui.form,
-            common = layui.common;
-        //关闭
-        $('#btnClose').on('click', function () {
-            var index = parent.layer.getFrameIndex(window.name);
-            parent.layer.close(index);
-        });
-        //保存
-        form.on('submit(btnSubmit)', function () {
-            var arrids = [];
-            $("input[type='checkbox']:checked").each(function () {
-                arrids.push($(this).val());
+@section scripts{
+    <script type="text/javascript">
+        layui.use(['form'], function () {
+            var $ = layui.$,
+                form = layui.form
+            //关闭
+            $('#btnClose').on('click', function () {
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index);
             });
-            $.post('/System/User/AllotRole', { userId: $('#hiId').val(), ids: arrids.join(',') }, function (data) {
-                if (data.State) {
-                    window.parent.tipSuccess(data.Message);
-                    setTimeout(function () {
-                        var index = parent.layer.getFrameIndex(window.name);
-                        parent.layer.close(index);
-                    }, 1000);
-                }
-                else {
-                    window.parent.tipError(data.Message);
-                }
+            //保存
+            form.on('submit(btnSubmit)', function () {
+                var arrids = [];
+                $("input[type='checkbox']:checked").each(function () {
+                    arrids.push($(this).val());
+                });
+                $.post('/System/User/AllotRole', { userId: $('#hiId').val(), ids: arrids.join(',') }, function (data) {
+                    if (data.State) {
+                        window.parent.tipSuccess(data.Message);
+                        setTimeout(function () {
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                        }, 1000);
+                    }
+                    else {
+                        window.parent.tipError(data.Message);
+                    }
+                });
+                return false;
             });
-            return false;
         });
-    });
-</script>
+    </script>
+ }
+
+
 

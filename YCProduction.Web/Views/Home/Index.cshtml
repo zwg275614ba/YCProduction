@@ -1,86 +1,189 @@
 ﻿@{
     ViewData["Title"] = "项目管理系统";
 }
-
-<!-- 布 局 框 架 -->
-<div class="layui-layout layui-layout-admin layui-hide layui-load">
-    <div class="layui-header header">
+@section styles{
+    <link rel="stylesheet" href="~/css/load.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+}
+<!-- 布局框架 -->
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
         <div class="layui-logo">
-            <a href="#">
-                <img src="http://easyadmin.99php.cn/static/admin/images/head.jpg" alt="logo" />
-                <h1>项目管理系统</h1>
-            </a>
+            <img class="logo" src="" />
+            <span class="title"></span>
         </div>
-        <a>
-            <div class="layuimini-tool"><i title="展开" class="fa fa-outdent" data-side-fold="1"></i></div>
-        </a>
-        <ul class="layui-nav layui-layout-left layui-header-menu layui-header-pc-menu mobile layui-hide-xs"></ul>
-        <ul class="layui-nav layui-layout-left layui-header-menu mobile layui-hide-sm">
-            <li class="layui-nav-item">
-                <a href="javascript:;"><i class="fa fa-list-ul"></i> 选择模块</a>
-                <dl class="layui-nav-child layui-header-mini-menu"></dl>
-            </li>
+        <ul class="layui-nav layui-layout-left">
+            <li class="collaspe layui-nav-item"><a href="#" class="layui-icon layui-icon-shrink-right"></a></li>
+            <li class="refresh layui-nav-item"><a href="#" class="layui-icon layui-icon-refresh-1" loading=600></a></li>
         </ul>
+        <div id="control" class="layui-layout-control"></div>
         <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item">
-                <a href="javascript:;" data-refresh="刷新"><i class="fa fa-refresh"></i></a>
-            </li>
             <li class="layui-nav-item" style="height:70px;display:inline-flex;">
                 <!--天气信息-->
                 <div id="tp-weather-widget"></div>
             </li>
-            <li class="layui-nav-item" style="padding-left:50px;margin-right:-10px;">
-                @Html.Raw(ViewBag.Photo)
-            </li>
-            <li class="layui-nav-item layuimini-setting">
-                <a href="javascript:;">
-                    @ViewBag.UserName
+            <li class="layui-nav-item layui-hide-xs">
+                <a class="social">
+                    <i class="layui-icon layui-icon-dialogue"></i>
+                    <span id="headerMessage"></span>
                 </a>
+            </li>
+            <li class="layui-nav-item layui-hide-xs"><a href="#" class="fullScreen layui-icon layui-icon-screen-full"></a></li>
+            <li class="layui-nav-item layui-hide-xs">
+                <a class="notice">
+                    <i class="layui-icon layui-icon-notice"></i>
+                    <span id="headerNotice"></span>
+                </a>
+            </li>
+
+            <li class="layui-nav-item" lay-unselect="">
+                <a href="javascript:;"><img src="~/images/profile_small.jpg" class="layui-nav-img"> @ViewBag.UserName</a>
                 <dl class="layui-nav-child">
                     <dd>
-                        <a href="javascript:;" data-icon="fa fa-gears" id="info">个人信息</a>
+                        <a user-menu-url="" user-menu-id="258632" user-menu-title="个人信息">个人信息</a>
                     </dd>
+                    <dd><a user-menu-url="/System/User/EditPwd" user-menu-id="E95D6C73F8433520C2F88C129A96394D" user-menu-title="修改密码">修改密码</a></dd>
                     <dd>
-                        <a href="javascript:;" data-iframe-tab="/System/User/EditPwd" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
-                    </dd>
-                    <dd>
-                        <a class="login-out" asp-action="OutLogin" asp-controller="Account">退出登录</a>
+                        <a asp-action="OutLogin" asp-controller="Account">退出登录</a>
                     </dd>
                 </dl>
             </li>
-            <li class="layui-nav-item layuimini-select-bgcolor mobile layui-hide-xs">
-                <a href="javascript:;" data-bgcolor="配色方案"><i class="fa fa-ellipsis-v"></i></a>
-            </li>
+            <li class="layui-nav-item setting"><a href="#" class="layui-icon layui-icon-more-vertical"></a></li>
         </ul>
     </div>
     <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll layui-left-menu">
+        <div class="layui-logo">
+            <img class="logo" src="" />
+            <span class="title"></span>
         </div>
-    </div>
-    <div class="layui-body">
-        <div class="layui-tab" lay-filter="layuiminiTab" id="top_tabs_box">
-            <ul class="layui-tab-title" id="top_tabs">
-                <li class="layui-this" id="layuiminiHomeTabId" lay-id=""></li>
-            </ul>
-            <ul class="layui-nav closeBox">
-                <li class="layui-nav-item">
-                    <a href="javascript:;"> <i class="fa fa-dot-circle-o"></i> 页面操作</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" data-page-close="other"><i class="fa fa-window-close"></i> 关闭其他</a></dd>
-                        <dd><a href="javascript:;" data-page-close="all"><i class="fa fa-window-close-o"></i> 关闭全部</a></dd>
-                    </dl>
-                </li>
-            </ul>
-            <div class="layui-tab-content clildFrame">
-                <div id="layuiminiHomeTabIframe" class="layui-tab-item layui-show">
-                </div>
+        <div class="layui-side-scroll">
+            <div id="sideMenu">
+                @Html.Raw(ViewData["menus"])
             </div>
         </div>
     </div>
+    <div class="layui-body">
+        <div id="content"></div>
+    </div>
+
+    <!-- 遮盖层 -->
+    <div class="pear-cover"></div>
+    <!-- 加载动画-->
+    <div class="loader-main">
+        <div class="loader"></div>
+    </div>
 </div>
-<!-- 加 载 动 画 -->
-<div class="loader-main">
-    <!-- 动 画 对 象 -->
-    <div class="loader"></div>
+
+<!-- 移动端收缩适配 -->
+<div class="pear-collasped-pe collaspe">
+    <a href="#" class="layui-icon layui-icon-shrink-right"></a>
 </div>
+
+@section scripts{
+    <script type="text/javascript">
+        layui.use(['admin', 'layer', 'hash', 'abp', 'abpsignalrclient', 'abpsignalrchat'], function () {
+            var admin = layui.admin;
+            var $ = layui.jquery;
+            var layer = layui.layer;
+            var hash = layui.hash;
+            var abp = layui.abp;
+            var currMessageIndex = "";
+            var config = {
+                logo: {
+                    title: "项目管理系统",
+                    image: "/images/logo.png"
+                },
+                menu: {
+                    control: false,
+                    accordion: true,
+                    collaspe: false,
+                    async: false
+                },
+                tab: {
+                    enable: true,
+                    keepState: true,
+                    session: false,
+                    max: 20,
+                    index: {
+                        id: '0056',
+                        href: '/Home/home',
+                        title: "首页"
+                    }
+                },
+                theme: {
+                    defaultColor: "2",
+                    defaultMenu: "dark-theme",
+                    defaultHeader: "light-theme",
+                    allowCustom: true,
+                    banner: false
+                },
+                colors: [
+                    {
+                        id: "1",
+                        color: "#2d8cf0",
+                        second: "#ecf5ff"
+                    },
+                    {
+                        id: "2",
+                        color: "#36b368",
+                        second: "#f0f9eb"
+                    },
+                    {
+                        id: "3",
+                        color: "#f6ad55",
+                        second: "#fdf6ec"
+                    },
+                    {
+                        id: "4",
+                        color: "#f56c6c",
+                        second: "#fef0f0"
+                    },
+                    {
+                        id: "5",
+                        color: "3963bc",
+                        second: "#ecf5ff"
+                    },
+                    {
+                        id: "6",
+                        color: "#f7cfea",
+                        second: "#ecf5ff"
+                    }
+                ],
+                other: {
+                    keepLoad: false,
+                    autoHead: false
+                },
+                header: {
+                    message: false
+                }
+            };
+            admin.render(config);
+
+            window.selectedWindow = function () {
+                return $(".layui-body .layui-tab-content .layui-show")[0].children[0].contentWindow;
+            }
+
+            abp.event.on('app.chat.messageReceived', function (message) {
+                if (currMessageIndex == "") {
+                    messageUnread();
+                }
+            });
+
+            abp.event.on('abp.notifications.received', function (userNotification) {
+                abp.notifications.showUiNotifyForUserNotification(userNotification);
+                notificationUnread();
+            });
+
+            function notificationUnread() {
+                $("#headerNotice").addClass("layui-badge-dot");
+            }
+
+            function messageUnread() {
+                $("#headerMessage").addClass("layui-badge-dot");
+            }
+        });
+    </script>
+}
+
+
 

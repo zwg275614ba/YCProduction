@@ -6842,11 +6842,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj",
       "projectName": "YCProduction.Repository",
-      "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj",
+      "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6868,11 +6868,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
             },
-            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj"
             }
           }
         }

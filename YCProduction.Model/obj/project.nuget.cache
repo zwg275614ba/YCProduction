@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2zUdj0CpeWRERGX0VWhCufBCrubcTyaN4LzDebyglLrrupBYez6XWGKt/lqy+0O3JOcjeZA49WKnSU8qmR05oA==",
+  "dgSpecHash": "OFoXjxSWosl2YiPGIx9tb+WYJQZQ/osS4lO8KDsLEKTTp/+7Fq1XfgBwVXHjUp2ou5IRHBTVfSdo+nO2Sd/59Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\google.protobuf\\3.11.4\\google.protobuf.3.11.4.nupkg.sha512",

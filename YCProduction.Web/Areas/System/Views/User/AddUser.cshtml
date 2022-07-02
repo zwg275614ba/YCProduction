@@ -24,33 +24,42 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button lay-submit="" lay-filter="btnSubmit" class="layui-btn layui-btn-normal">保存</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            <button lay-submit="" lay-filter="btnSubmit" class="pear-btn pear-btn-primary pear-btn-md">保存</button>
+            <button type="reset" class="pear-btn pear-btn-md">
+                <i class="layui-icon layui-icon-refresh"></i>
+                重置
+            </button>
         </div>
     </div>
+
 </form>
 
-<script type="text/javascript">
-    layui.use(["form", "common"], function () {
-        var form = layui.form,
-            common = layui.common,
-            $ = layui.$;
-        //提交
-        form.on('submit(btnSubmit)', function () {
-            var formData = $('#formForm').serialize();
-            $.post('/System/User/AddInfo', formData, function (res) {
-                console.log(res);
-                if (res.State) {
-                    window.parent.tipSuccess(res.Message);
-                    setTimeout(CloseWin, 1500);
-                }
-                else {
-                    window.parent.tipError(res.Message);
-                }
+@section scripts{
+    <script type="text/javascript">
+        layui.use(["form"], function () {
+            var form = layui.form,
+                $ = layui.$;
+            //提交
+            form.on('submit(btnSubmit)', function () {
+                var formData = $('#formForm').serialize();
+                $.post('/System/User/AddInfo', formData, function (res) {
+                    console.log(res);
+                    if (res.State) {
+                        window.parent.tipSuccess(res.Message);
+                        setTimeout(CloseWin, 1500);
+
+                    }
+                    else {
+                        //abp.notify.error(res.Message);
+                        window.parent.tipError(res.Message);
+                    }
+                });
+                return false;
             });
-            return false;
         });
-    });
-</script>
+    </script>
+}
+
+
 
 

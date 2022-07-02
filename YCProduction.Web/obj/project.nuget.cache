@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LurKm1loqXvb1bibdhBn5somhJGNIh7RKBld/ZgK1qT2r3pvk0aXvtTss3Skxy+T9Qm3KQ6rFPaviiEwfZintA==",
+  "dgSpecHash": "VQE9OcXd62lOY+O6QqXzd3TQOm/0tQ9kxAz8vK5r5j0EEw1kMbtu5B6zb7Jw7ksXXWki17f0SzVuRhGvR8JHCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Web\\YCProduction.Web.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Web\\YCProduction.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

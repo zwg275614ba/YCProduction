@@ -4,48 +4,50 @@
     Layout = "~/Views/Shared/_LayoutList.cshtml";
 }
 
-<div class="main">
-    <!------------------查询-------------------------->
-    <fieldset class="table-search-fieldset">
-        <legend>搜索信息</legend>
-        <div class="divQuery">
-            <form class="layui-form" action="" id="formSearch">
-                <div class="layui-form-item">
-                    <label class="layui-form-label">联系人</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="Contact" placeholder="联系人" class="layui-input">
-                    </div>
-                    <label class="layui-form-label">客户公司</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="CustomerCompany" placeholder="客户公司" class="layui-input">
-                    </div>
-                    <div class="layui-input-inline btn">
-                        <a href="javascript:;" class="layui-btn layui-btn-sm" id="btnQuery" data-type="reload">
-                            查询
-                        </a>
-                        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
-                    </div>
-                    <div class="btn-right">
-                        @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
-                    </div>
+
+<!----------------查 询------------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form class="layui-form form-search" action="" id="formSearch">
+            <div class="layui-form-item">
+                <label class="layui-form-label">联系人</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="Contact" placeholder="联系人" class="layui-input">
                 </div>
-            </form>
-        </div>
-    </fieldset>
-    <!------------------表格-------------------------->
-    <div class="divTable">
-        <div class="content">
-            <table id="defaultTable" lay-filter="CustomerInfoTable"></table>
-        </div>
+                <label class="layui-form-label">客户公司</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="CustomerCompany" placeholder="客户公司" class="layui-input">
+                </div>
+                <div>
+                    <a href="javascript:;" class="pear-btn pear-btn-md pear-btn-primary" id="btnQuery" data-type="reload">
+                        <i class="layui-icon layui-icon-search"></i>
+                        查询
+                    </a>
+                    <button type="reset" class="pear-btn pear-btn-md">
+                        <i class="layui-icon layui-icon-refresh"></i>
+                        重置
+                    </button>
+                    @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                </div>
+            </div>
+        </form>
     </div>
-    <!-------------------工具栏------------------------->
-    <script type="text/html" id="toolBar">
-        @Html.ToolBarHtml(ViewData["ActionList"])
-    </script>
 </div>
 
 
-<script type="text/javascript">
+<!-------------表格--------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <table id="defaultTable" lay-filter="CustomerInfoTable"></table>
+    </div>
+</div>
+<!------------------工具栏------------------------->
+<script type="text/html" id="toolBar">
+    @Html.ToolBarHtml(ViewData["ActionList"])
+</script>
+
+@section scripts{ 
+    <script type="text/javascript">
     layui.use(['form', 'table', 'common'], function () {
         var form = layui.form,
             common = layui.common,
@@ -130,4 +132,6 @@
             }
         });
     });
-</script>
+    </script>
+}
+

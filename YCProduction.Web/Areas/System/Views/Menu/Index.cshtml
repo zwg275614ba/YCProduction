@@ -4,33 +4,44 @@
     Layout = "~/Views/Shared/_LayoutList.cshtml";
 }
 
-<link href="~/js/lay-module/treetable-lay/treetable.css" rel="stylesheet" />
-<div class="main">
-    <!----------------------查询---------------------------------->
-    <fieldset class="table-search-fieldset">
-        <legend>搜索信息</legend>
-        <div class="divQuery">
-            <div class="layui-btn-group" style="line-height:60px;padding-left:50px;">
-                <button class="layui-btn layui-btn-sm" id="btn-expand">全部展开</button>
-                <button class="layui-btn layui-btn-sm" id="btn-fold">全部折叠</button>
+@section styles{
+    <link href="~/libs/pear/css/module/treetable.css" rel="stylesheet" />
+}
+
+<!----------------查 询------------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form class="layui-form form-search" action="" id="formSearch">
+            <div class="layui-form-item">
+                <div>
+                    <a href="javascript:;" class="pear-btn pear-btn-success pear-btn-md" id="btn-expand">
+                        <i class="layui-icon layui-icon-spread-left"></i>
+                        全部展开
+                    </a>
+                    <a href="javascript:;" class="pear-btn pear-btn-success pear-btn-md" id="btn-fold">
+                        <i class="layui-icon layui-icon-shrink-right"></i>
+                        全部折叠
+                    </a>
+                    @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                </div>
             </div>
-            <div class="btn-right">
-                @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
-            </div>
-        </div>
-    </fieldset>
-    <!------------------表格-------------------------->
-    <div class="divTable">
-        <div class="content">
-            <table id="munu-table" lay-filter="munu-table"></table>
-        </div>
+        </form>
     </div>
-    <!------------------------工具栏-------------------------->
-    <script type="text/html" id="toolBar">
-        @Html.ToolBarHtml(ViewData["ActionList"])
-    </script>
 </div>
-<script type="text/javascript">
+<!-------------表格--------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <table id="munu-table" lay-filter="munu-table"></table>
+    </div>
+</div>
+<!------------------工具栏------------------------->
+<script type="text/html" id="toolBar">
+    @Html.ToolBarHtml(ViewData["ActionList"])
+</script>
+
+
+@section scripts{
+    <script type="text/javascript">
     layui.use(['table', 'treetable', 'common'], function () {
         var $ = layui.$,
             table = layui.table,
@@ -54,10 +65,10 @@
                  { field: 'OrderNo', title: '@Html.DisplayNameFor(a=>a.OrderNo)' },
                  {
                      field: 'Status', title: '@Html.DisplayNameFor(a=>a.Status)', templet: function (res) {
-                         if (res.Status == 1)
-                             return "关闭"
+                         if (res.Status == 0)
+                             return "<span style=\"color:rgb(0, 128, 0)\">启用</span>"
                          else
-                             return "启动"
+                             return "<span style=\"color:#f56c6c\">关闭</span>"
                      }
                  },
               { field: '', title: '操作', toolbar: '#toolBar', width: 220 }
@@ -112,5 +123,7 @@
             }
         });
     });
-</script>
+    </script>
+}
+
 

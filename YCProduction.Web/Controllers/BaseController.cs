@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YCProduction.Common;
 using YCProduction.IService.IService.System;
 using YCProduction.Model.Entitys.System;
 using YCProduction.Model.Entitys.Values;
@@ -24,6 +25,15 @@ namespace YCProduction.Web.Controllers
 
         public virtual IActionResult Index()
         {
+           
+            try
+            {
+                var cookie = CookiesHelper.ReadCookie(HttpContext,"zwg");
+             
+            }
+            catch (Exception e) { 
+            
+            }
             ViewData["ActionList"] = GetToolBar(MenuId, 0);
             ViewData["ActionFormRightTop"] = GetToolBar(MenuId, ButtonPosition.OutForm);
             return View();
@@ -32,7 +42,7 @@ namespace YCProduction.Web.Controllers
         /// <summary>
         /// 获取菜单id
         /// </summary>
-        protected int MenuId => string.IsNullOrEmpty(Request.Query["mpi"] + "") ? 0 : int.Parse(Request.Query["mpi"]);
+        protected int MenuId => string.IsNullOrEmpty(CookiesHelper.ReadCookie(HttpContext, "mip") + "") ? 0 : int.Parse(CookiesHelper.ReadCookie(HttpContext, "mip"));
         /// <summary>
         /// 获取登录用户名称
         /// </summary>

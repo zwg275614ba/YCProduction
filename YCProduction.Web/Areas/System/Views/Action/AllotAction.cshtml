@@ -8,7 +8,9 @@
     <a class='layui-btn layui-btn-xs' href="javascript:;" id="btnClose">取消</a>
     <a class='layui-btn layui-btn-xs layui-btn-danger' href="javascript:;" id="btnSave">分配</a>
 </div>
-<script type="text/javascript">
+
+@section scripts{
+    <script type="text/javascript">
     var layer = null,
         common = null;
     layui.use(['layer','common'], function () {
@@ -75,5 +77,8 @@
             });
         });
     })
-</script>
+    </script>
+}
+
+
 

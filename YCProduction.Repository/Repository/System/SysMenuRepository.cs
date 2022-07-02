@@ -121,7 +121,7 @@ namespace YCProduction.Repository.Repository.System
         /// 拼接json 
         /// </summary>
         /// <returns></returns>
-        public string GetMenu(List<SysMenu> lst)
+        public string OldGetMenu(List<SysMenu> lst)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("{\"menuInfo\":{");
@@ -156,6 +156,33 @@ namespace YCProduction.Repository.Repository.System
                 sb.Remove(sb.Length - 1, 1);
             }
             sb.Append("}}");
+            return sb.ToString();
+        }
+
+        public string GetMenu(List<SysMenu> lst)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (lst.Count > 0)
+            {
+                sb.Append(" <ul lay-filter=\"sideMenu\" class=\"layui-nav arrow pear-menu layui-nav-tree pear-nav-tree\">");
+                //加载一级菜单
+                var menuL1 = lst.Where(hh => hh.MenuLevel == 2).ToList();
+                foreach (var item in menuL1)
+                {
+                    sb.Append("<li class=\"layui-nav-item\">");
+                    sb.Append($"<a href=\"javascript:;\" menu-type=\"0\" menu-id='{item.Id}'> <i class='layui-icon {item.MenuIccon}'></i><span>{item.MenuName}</span></a>");
+                    //加载二级菜单
+                    var menuL2 = lst.Where(hh => hh.ParentId == item.Id).ToList();
+                    sb.Append("<dl class=\"layui-nav-child\">");
+                    foreach (var menu in menuL2)
+                    {
+                        sb.Append($"<dd><a menu-url = '{menu.MenuUrl}' class=\"site-demo-active\" menu-type=\"1\" menu-id='{menu.Id}' menu-title='{menu.MenuName}'><i class=\"layui-icon layui-icon-console\"></i> <span>{menu.MenuName}</span></a></dd>");
+                    }
+                    sb.Append("</dl>");
+                    sb.Append("</li>");
+                }
+                sb.Append("</ul>");
+            }
             return sb.ToString();
         }
     }

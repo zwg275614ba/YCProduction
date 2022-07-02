@@ -4,86 +4,91 @@
     Layout = "~/Views/Shared/_LayoutList.cshtml";
 }
 
-<div class="main">
-    <!------------------查询-------------------------->
-    <div class="divQuery">
-        <form class="layui-form" action="" id="formSearch">
+<!----------------查 询------------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form class="layui-form form-search" action="" id="formSearch">
             <div class="layui-form-item">
-                <div class="btn-right">
+                <div>
                     @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
                 </div>
             </div>
         </form>
     </div>
-    <!------------------表格-------------------------->
-    <div class="divTable">
-        <div class="content">
-            <table id="department-table" lay-filter="department-table"></table>
-        </div>
-    </div>
-    <!------------------工具栏------------------------->
-    <script type="text/html" id="toolBar">
-        @Html.ToolBarHtml(ViewData["ActionList"])
-    </script>
 </div>
+<!-------------表格--------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <table id="department-table" lay-filter="department-table"></table>
+    </div>
+</div>
+<!------------------工具栏------------------------->
+<script type="text/html" id="toolBar">
+    @Html.ToolBarHtml(ViewData["ActionList"])
+</script>
 
-
-<script type="text/javascript">
-    layui.use(['form', 'common', 'treetable', 'table'], function () {
-        var form = layui.form,
-            common = layui.common,
-            table = layui.table,
-            treetable = layui.treetable;
-        $ = layui.$;
-        //渲染表格
-        treetable.render({
-            treeColIndex: 1,
-            treeSpid: -1,
-            treeIdName: 'Id',
-            height: 'full-110',
-            toolbar: true,
-            treePidName: 'ParentId',
-            elem: '#department-table',
-            url: '/Base/department/GetDepartmentList',
-            page: false,
-            cols: [[
-                { field: 'DepartmentId', title: '部门ID', width: 150 },
-                { field: 'DepartmentName', title: '部门名称', width: 200 },
-                { field: 'Duty', title: '职责', width: 400 },
-                { field: 'Remarks', title: '备注', width: 180 },
-                { field: '', title: '操作', toolbar: '#toolBar', width: 260 }
-            ]]
-        });
-        //添加
-        $('#btnAdd').on('click', function () {
-            common.openTop({
-                title: '添加部门', w: '600px', h: '500px', content: '/Base/department/AddDepartment/'
+@section scripts{
+    <script type="text/javascript">
+        layui.use(['form', 'common', 'treetable', 'table'], function () {
+            var form = layui.form,
+                common = layui.common,
+                table = layui.table,
+                treetable = layui.treetable;
+            $ = layui.$;
+            //渲染表格
+            treetable.render({
+                treeColIndex: 1,
+                treeSpid: -1,
+                treeIdName: 'Id',
+                height: 'full-110',
+                toolbar: true,
+                treePidName: 'ParentId',
+                elem: '#department-table',
+                url: '/Base/department/GetDepartmentList',
+                page: false,
+                cols: [[
+                    { field: 'DepartmentId', title: '部门ID', width: 150 },
+                    { field: 'DepartmentName', title: '部门名称', width: 200 },
+                    { field: 'Duty', title: '职责', width: 400 },
+                    { field: 'Remarks', title: '备注', width: 180 },
+                    { field: '', title: '操作', toolbar: '#toolBar', width: 260 }
+                ]]
+            });
+            //添加
+            $('#btnAdd').on('click', function () {
+                common.openTop({
+                    title: '添加部门', w: '600px', h: '500px', content: '/Base/department/AddDepartment/'
+                });
+            });
+            //监听工具栏
+            table.on('tool(department-table)', function (obj) {
+                var data = obj.data;
+                //编辑
+                if (obj.event === 'edit') {
+                    common.openTop({
+                        title: '编辑部门', w: '600px', h: '500px', content: '/Base/department/EditDepartment/' + data.Id
+                    });
+                }//删除
+                else if (obj.event === 'del') {
+                    layer.confirm('确定要删除该记录', function (index) {
+                        $.post('/Base/department/DelInfo', { id: data.Id }, function (data) {
+                            if (data.State) {
+                                obj.del();//删除这一行
+                                tipSuccess(data.Message);
+                            }
+                            else {
+                                tipError(data.Message);
+                            }
+                            layer.close(index);//关闭弹框
+                        });
+                    });
+                }
             });
         });
-        //监听工具栏
-        table.on('tool(department-table)', function (obj) {
-            var data = obj.data;
-            //编辑
-            if (obj.event === 'edit') {
-                common.openTop({
-                    title: '编辑部门', w: '600px', h: '500px', content: '/Base/department/EditDepartment/' + data.Id
-                });
-            }//删除
-            else if (obj.event === 'del') {
-                layer.confirm('确定要删除该记录', function (index) {
-                    $.post('/Base/department/DelInfo', { id: data.Id }, function (data) {
-                        if (data.State) {
-                            obj.del();//删除这一行
-                            tipSuccess(data.Message);
-                        }
-                        else {
-                            tipError(data.Message);
-                        }
-                        layer.close(index);//关闭弹框
-                    });
-                });
-            }
-        });
-    });
-</script>
+    </script>
+}
+
+
+
+
 

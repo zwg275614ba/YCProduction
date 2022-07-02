@@ -27,7 +27,8 @@ namespace YCProduction.Common
         /// <returns></returns>
         private static string CookieKey(string cookieName)
         {
-            return CookieName + cookieName;
+            //return CookieName + cookieName;
+            return cookieName;
         }
         /// <summary>
         /// 删除Cookie

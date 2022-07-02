@@ -8613,11 +8613,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Web\\YCProduction.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Web\\YCProduction.Web.csproj",
       "projectName": "YCProduction.Web",
-      "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Web\\YCProduction.Web.csproj",
+      "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Web\\YCProduction.Web.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Web\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8639,26 +8639,26 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.BaseEntityFramework\\YCProduction.BaseEntityFramework.csproj"
             },
-            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Common\\YCProduction.Common.csproj"
             },
-            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.IRepository\\YCProduction.IRepository.csproj"
             },
-            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IService\\YCProduction.IService.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.IService\\YCProduction.IService.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.IService\\YCProduction.IService.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.IService\\YCProduction.IService.csproj"
             },
-            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Model\\YCProduction.Model.csproj"
             },
-            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Repository\\YCProduction.Repository.csproj"
             },
-            "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Service\\YCProduction.Service.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\YCProduction\\YCProduction.Service\\YCProduction.Service.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Service\\YCProduction.Service.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\YCProduction\\YCProduction.Service\\YCProduction.Service.csproj"
             }
           }
         }

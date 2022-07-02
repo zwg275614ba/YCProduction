@@ -1,109 +1,39 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-
-    <!-- 依 赖 样 式 -->
-    <link href="~/lib/layui-v2.5.4/css/layui.css" asp-append-version="true" rel="stylesheet" />
-    <link href="~/css/dialog.css" asp-append-version="true" rel="stylesheet" />
-    <link href="~/lib/font-awesome-4.7.0/css/font-awesome.min.css" asp-append-version="true" rel="stylesheet" />
-    <link rel="icon" href="images/favicon.ico">
-    <link href="~/lib/toastr/toastr.min.css" asp-append-version="true" rel="stylesheet" />
-    <!-- 依 赖 脚 本 -->
-    <script src="~/js/jquery-1.10.2.min.js" asp-append-version="true"></script>
-    <script src="~/lib/layui-v2.5.4/layui.js" asp-append-version="true"></script>
-    <script src="~/lib/toastr/toastr.min.js" asp-append-version="true"></script>
-    <script src="~/js/global.js" asp-append-version="true"></script>
-    <style type="text/css">
-        body {
-            background-color: #EEF1F6;
-        }
-
-        .main {
-            width: 98%;
-            margin: 0 auto;
-        }
-
-        .divQuery {
-            width: 100%;
-            height: 70px;
-            background: #fff;
-        }
-
-        .layui-form-label {
-            line-height: 40px !important;
-        }
-
-        .layui-input-inline {
-            margin-top: 10px;
-        }
-
-        .btn {
-            margin-top: 15px !important;
-        }
-
-        .divTable {
-            width: 100%;
-            margin-top: 20px;
-            background-color: #fff;
-        }
-
-        .content {
-            width: 99%;
-            margin: 0 auto;
-            padding-top: 7px;
-        }
-
-        .btn-right {
-            float: right;
-            line-height: 60px;
-            padding-right: 50px;
-        }
-
-        .divContent {
-            width: 97%;
-            margin: 0 auto;
-            height: 400px;
-            background-color: #fff;
-            margin-top: 20px;
-        }
-
-        .table-search-fieldset {
-            margin: 0;
-            border: 1px solid #ccc;
-            padding: 10px 20px 5px 20px;
-            color: #6b6b6b;
-            background-color: #fff;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/libs/pear/css/pear.css" asp-append-version="true" />
+    <style id="pearadmin-bg-color"></style>
+    <link rel="icon" href="~/images/logo.png">
+    @RenderSection("styles", required: false)
 </head>
-<body style="overflow:hidden;">
-    @RenderBody()
-    <script type="text/javascript">
-        layui.config({
-            base: '/lib/layui-v2.5.4/lay/app/',
-            version: '4546545154'
-        });
+<body class="pear-container">
 
+    @RenderBody()
+    <script src="~/js/jquery-1.10.2.min.js" asp-append-version="true"></script>
+    <script src="~/libs/layui/layui.js" asp-append-version="true"></script>
+    <script src="~/libs/pear/pear.js" asp-append-version="true"></script>
+    <script src="~/js/global.js" asp-append-version="true"></script>
+    @RenderSection("scripts", required: false)
+    <script>
+        var abp;
+        layui.use(["abp"], function () {
+            abp = layui.abp;
+        });
         //提示信息
         function tipSuccess(msg) {
-            toastrSuccess(msg);
+            abp.notify.success(msg);
         }
         function tipError(msg) {
-            toastrError(msg);
+            abp.notify.error(msg);
         }
         function tipInfo(msg) {
-            toastrInfo(msg);
+            abp.notify.info(msg);
         }
         function tipWarning(msg) {
-            toastrWarning(msg);
+            abp.notify.warn(msg);
         }
     </script>
 </body>

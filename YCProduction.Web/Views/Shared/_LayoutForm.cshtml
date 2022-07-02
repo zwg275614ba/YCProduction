@@ -1,45 +1,25 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <link rel="icon" href="images/favicon.ico">
-    <!-- 依 赖 样 式 -->
-    <link href="~/lib/layui-v2.5.4/css/layui.css" asp-append-version="true" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/libs/pear/css/pear.css" asp-append-version="true" />
     <link href="~/lib/zTree/css/zTreeStyle/zTreeStyle.css" asp-append-version="true" rel="stylesheet" />
-    <link href="~/lib/font-awesome-4.7.0/css/font-awesome.min.css" asp-append-version="true" rel="stylesheet" />
-    <link href="~/css/dialog.css" asp-append-version="true" rel="stylesheet" />
-    <link href="~/lib/toastr/toastr.min.css" asp-append-version="true" rel="stylesheet" />
-    <!-- 依 赖 脚 本 -->
+    <style id="pearadmin-bg-color"></style>
+    @RenderSection("styles", required: false)
+</head>
+<body class="pear-container">
+
+    @RenderBody()
     <script src="~/js/jquery-1.10.2.min.js" asp-append-version="true"></script>
-    <script src="~/lib/layui-v2.5.4/layui.js" asp-append-version="true"></script>
+    <script src="~/libs/layui/layui.js" asp-append-version="true"></script>
+    <script src="~/libs/pear/pear.js" asp-append-version="true"></script>
+    <script src="~/js/global.js" asp-append-version="true"></script>
     <script src="~/lib/zTree/js/jquery.ztree.core.min.js" asp-append-version="true"></script>
     <script src="~/lib/zTree/js/jquery.ztree.excheck.min.js" asp-append-version="true"></script>
-    <script src="~/lib/toastr/toastr.min.js" asp-append-version="true"></script>
-    <script src="~/js/global.js" asp-append-version="true"></script>
-    <style type="text/css">
-        .layui-input-inline {
-            width: 350px !important;
-        }
-
-        #formForm {
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    @RenderBody()
-    <script type="text/javascript">
-        layui.config({
-            base: '/lib/layui-v2.5.4/lay/app/',
-            version: '4546545154'
-        });
+    @RenderSection("scripts", required: false)
+    <script>
         //关闭页面
         function CloseWin() {
             parent.location.reload(); // 父页面刷新

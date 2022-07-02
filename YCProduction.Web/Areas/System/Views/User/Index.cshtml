@@ -3,54 +3,55 @@
     Layout = "~/Views/Shared/_LayoutList.cshtml";
 }
 
-<div class="main">
-    <!------------------查询-------------------------->
-    <fieldset class="table-search-fieldset">
-        <legend>搜索信息</legend>
-        <div class="divQuery">
-            <form class="layui-form" action="" id="formSearch">
-                <div class="layui-form-item">
-                    <label class="layui-form-label">用户名称</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="UserName" placeholder="用户名" class="layui-input">
-                    </div>
-                    <div class="layui-input-inline btn">
-                        <a href="javascript:;" class="layui-btn layui-btn-sm" id="btnQuery" data-type="reload">
-                            查询
-                        </a>
-                        <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
-                    </div>
-                    <div class="btn-right">
-                        @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
-                    </div>
+<!----------------查 询------------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form class="layui-form form-search" action="" id="formSearch">
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="UserName" placeholder="用户名" class="layui-input">
                 </div>
-            </form>
-        </div>
-    </fieldset>
-    <!------------------表格-------------------------->
-    <div class="divTable">
-        <div class="content">
-            <table id="defaultTable" lay-filter="UserTable"></table>
-        </div>
+                <div>
+                    <a href="javascript:;" class="pear-btn pear-btn-md pear-btn-primary" id="btnQuery" data-type="reload">
+                        <i class="layui-icon layui-icon-search"></i>
+                        查询
+                    </a>
+                    <button type="reset" class="pear-btn pear-btn-md">
+                        <i class="layui-icon layui-icon-refresh"></i>
+                        重置
+                    </button>
+                    @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                </div>
+            </div>
+        </form>
     </div>
-
-    <script type="text/html" id="test-table-switchTpl">
-        <input type="checkbox" name="Status" lay-skin="switch" lay-text="开启|关闭" lay-filter="table-State"
-               value="{{d.Id}}" data-json="{{ encodeURIComponent(JSON.stringify(d)) }}" {{ d.Status == 0 ? 'checked' : '' }}>
-    </script>
-    <script type="text/html" id="test-table-switchTp2">
-        <input type="checkbox" name="IsPwd" lay-skin="switch" lay-text="开启|关闭" lay-filter="table-IsPwd"
-               value="{{d.Id}}" data-json="{{ encodeURIComponent(JSON.stringify(d)) }}" {{ d.IsIsPwd == 0 ? 'checked' : ''}}>
-    </script>
-
-    <!------------------工具栏------------------------->
-    <script type="text/html" id="toolBar">
-        @Html.ToolBarHtml(ViewData["ActionList"])
-    </script>
 </div>
 
+<!-------------表格--------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <table id="defaultTable" lay-filter="UserTable"></table>
+    </div>
+</div>
 
-<script type="text/javascript">
+<script type="text/html" id="test-table-switchTpl">
+    <input type="checkbox" name="Status" lay-skin="switch" lay-text="开启|关闭" lay-filter="table-State"
+           value="{{d.Id}}" data-json="{{ encodeURIComponent(JSON.stringify(d)) }}" {{ d.Status == 0 ? 'checked' : '' }}>
+</script>
+<script type="text/html" id="test-table-switchTp2">
+    <input type="checkbox" name="IsPwd" lay-skin="switch" lay-text="开启|关闭" lay-filter="table-IsPwd"
+           value="{{d.Id}}" data-json="{{ encodeURIComponent(JSON.stringify(d)) }}" {{ d.IsIsPwd == 0 ? 'checked' : ''}}>
+</script>
+
+<!------------------工具栏------------------------->
+<script type="text/html" id="toolBar">
+    @Html.ToolBarHtml(ViewData["ActionList"])
+</script>
+
+
+@section scripts {
+    <script type="text/javascript">
     layui.use(['form', 'table', 'common'], function () {
         var form = layui.form,
             common = layui.common,
@@ -69,7 +70,7 @@
                 { field: 'Status', title: '用户状态', width: 100,templet: '#test-table-switchTpl', unresize: true },
                 { field: 'IsIsPwd', title: '改密', width: 100,  templet: '#test-table-switchTp2', unresize: true },
                 { field: 'CreateDate', title: '创建时间', width: 180, sort: true, templet: '<div>{{__subDateTime(d.CreateDate)}}</div>'},
-                { field: '', title: '操作', toolbar: '#toolBar', width: 260 }
+                { field: '', title: '操作', toolbar: '#toolBar' }
             ]]
         });
         var active = {
@@ -174,5 +175,8 @@
             }
         });
     });
-</script>
+    </script>
+}
+
+
 

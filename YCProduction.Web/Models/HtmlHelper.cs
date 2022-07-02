@@ -46,9 +46,10 @@ namespace Microsoft.AspNetCore.Mvc
             {
                 foreach (var v in list)
                 {
-                    sb.AppendFormat(@"<a href='javascript:;' class='layui-btn layui-btn-sm {0}' id='btn{1}'>
-                            <i class='fa {2}'></i> {3}
-                        </a>", v.ClassName, v.ActionCode, v.Icon, initTxt == null ? v.ActionName : initTxt);
+                    //sb.AppendFormat(@"<a href='javascript:;' class='layui-btn layui-btn-sm {0}' id='btn{1}'>
+                    //        <i class='fa {2}'></i> {3}
+                    //    </a>", v.ClassName, v.ActionCode, v.Icon, initTxt == null ? v.ActionName : initTxt);
+                    sb.Append($"<a href='javascript:;' class='pear-btn pear-btn-primary pear-btn-md' id='btn{v.ActionCode}' lay-event='add'> <i class='layui-icon layui-icon-add-1'></i>{v.ActionName} </a>");
                 }
             }
             return new HtmlString(sb.ToString());

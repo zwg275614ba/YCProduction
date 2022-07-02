@@ -76,8 +76,9 @@
         </div>
     </div>
 </div>
-<script src="~/lib/layui-v2.5.4/layui.all.js"></script>
-<script type="text/javascript">
+
+@section scripts{
+    <script type="text/javascript">
     $(function () {
         var _param = { _roleid:@ViewBag.RoleId};
         var _handler = {
@@ -161,5 +162,9 @@
         };
         _handler._init();
     });
-</script>
+    </script>
+
+}
+
+
 
