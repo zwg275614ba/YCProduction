@@ -100,6 +100,50 @@ namespace YCProduction.IRepository.Migrations
                     b.ToTable("Base_Department");
                 });
 
+            modelBuilder.Entity("YCProduction.Model.Entitys.Base.BaseDuties", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Base_Duties");
+                });
+
+            modelBuilder.Entity("YCProduction.Model.Entitys.Base.BasePositionalTitle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Base_PositionalTitle");
+                });
+
             modelBuilder.Entity("YCProduction.Model.Entitys.System.SysAction", b =>
                 {
                     b.Property<int>("Id")

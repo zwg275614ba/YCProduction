@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+
+<!----------------查 询------------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form class="layui-form form-search" action="" id="formSearch">
+            <div class="layui-form-item">
+                <label class="layui-form-label">职称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="Name" placeholder="职称" class="layui-input">
+                </div>
+                <div>
+                    <a href="javascript:;" class="pear-btn pear-btn-md pear-btn-primary" id="btnQuery" data-type="reload">
+                        <i class="layui-icon layui-icon-search"></i>
+                        查询
+                    </a>
+                    <button type="reset" class="pear-btn pear-btn-md">
+                        <i class="layui-icon layui-icon-refresh"></i>
+                        重置
+                    </button>
+                    @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-------------表格--------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <table id="defaultTable" lay-filter="PositionalTitleTable"></table>
+    </div>
+</div>
+<!------------------工具栏------------------------->
+<script type="text/html" id="toolBar">
+    @Html.ToolBarHtml(ViewData["ActionList"])
+</script>
+
+@section scripts{
+    <script type="text/javascript">
+        layui.use(['form', 'table', 'common'], function () {
+            var form = layui.form,
+                common = layui.common,
+                table = layui.table,
+                $ = layui.$;
+            //渲染表格
+            table.render({
+                id: 'defaultReload',
+                elem: '#defaultTable',
+                height: 'full-140',
+                url: '/Base/PositionalTitle/GetPositionalTitleList',
+                toolbar: true,
+                page: true,
+                cols: [[
+                    { field: 'Code', title: '职称ID', sort: true },
+                    { field: 'Name', title: '职称', sort: true },
+                    { field: 'Remark', title: '备注', sort: true },
+                    { field: '', title: '操作', toolbar: '#toolBar' }
+                ]]
+            });
+            var active = {
+                reload: function () {
+                    var jsonWhere = urlToJson($("#formSearch").serialize());
+                    //执行重载
+                    table.reload('defaultReload', {
+                        page: {
+                            curr: 1 //重新从第 1 页开始
+                        }
+                        , where: jsonWhere
+                    });
+                }
+            };
+            //服务器排序
+            table.on('sort(PositionalTitleTable)', function (obj) {
+                table.reload('defaultReload', {
+                    initSort: obj
+                    , where: { //请求参数
+                        field: obj.field //排序字段
+                        , order: obj.type //排序方式
+                    }
+                });
+            });
+            //查询
+            $("#btnQuery").on('click', function () {
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+            //添加
+            $('#btnAdd').on('click', function () {
+                common.openTop({
+                    title: '添加职称', w: '600px', h: '400px', content: '/Base/PositionalTitle/AddPositionalTitle/'
+                });
+            });
+            //监听工具栏
+            table.on('tool(PositionalTitleTable)', function (obj) {
+                var data = obj.data;
+                //编辑
+                if (obj.event === 'edit') {
+                    common.openTop({
+                        title: '编辑职称', w: '600px', h: '400px', content: '/Base/PositionalTitle/EditPositionalTitle/' + data.Id
+                    });
+                }//删除
+                else if (obj.event === 'del') {
+                    layer.confirm('确定要删除该条数据', function (index) {
+                        $.post('/Base/PositionalTitle/DelInfo', { id: data.Id }, function (data) {
+                            if (data.State) {
+                                obj.del();//删除这一行
+                                tipSuccess(data.Message);
+                            }
+                            else {
+                                tipError(data.Message);
+                            }
+                            layer.close(index);//关闭弹框
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+}
+
+

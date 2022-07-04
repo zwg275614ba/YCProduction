@@ -207,3 +207,9 @@ C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netc
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\CustomerInfo\AddCustomerInfo.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\_ViewImports.cshtml.g.cs
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\CustomerInfo\EditCustomerInfo.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\PositionalTitle\Index.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\PositionalTitle\AddPositionalTitle.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\PositionalTitle\EditPositionalTitle.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Duties\Index.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Duties\AddDuties.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Duties\EditDuties.cshtml.g.cs
