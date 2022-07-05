@@ -1,0 +1,85 @@
+﻿@model YCProduction.Model.Entitys.Dictionary.DicProjectCategory
+@{
+    ViewData["Title"] = "AddProjectCategory";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+<form id="formForm" action="" class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            项目类别ID
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" asp-for="ProjectCategoryId" class="layui-input" maxlength="8" lay-verify="ProjectCategoryId" lay-vertype="tips" placeholder="项目类别ID">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            项目类别
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" asp-for="ProjectCategory" class="layui-input" lay-verify="ProjectCategory" lay-vertype="tips" placeholder="项目类别">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            行业类别ID
+        </label>
+        <div class="layui-input-inline">
+            @Html.DropDownList("IndustryCategoryId", null, "-请选择-", new Dictionary<string, object> { { "lay-verify", "required" }, { "lay-vertype", "tips" }, { "class", "layui-input" }, { " lay-filter", "select-item" }})
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            备注
+        </label>
+        <div class="layui-input-inline">
+            <textarea asp-for="Remarks" rows="5" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button lay-submit="" lay-filter="btnSubmit" class="layui-btn layui-btn-normal">保存</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+@section scripts{
+    <script type="text/javascript">
+        layui.use(["form", "common"], function () {
+            var form = layui.form,
+                common = layui.common,
+                $ = layui.$;
+            //验证
+            form.verify({
+                ProjectCategoryId: function (value) {
+                    if (!$.trim(value))
+                        return "项目类别ID必填";
+                    if (value.length != 8)
+                        return "项目类别ID长度不够";
+                },
+                ProjectCategory: function (value) {
+                    if (!$.trim(value)) {
+                        return "项目类别必填";
+                    }
+                }
+            });
+            //提交
+            form.on('submit(btnSubmit)', function () {
+                var formData = $('#formForm').serialize();
+                $.post('/Dictionary/ProjectCategory/AddProjectCategory', formData, function (res) {
+                    if (res.State) {
+                        window.parent.tipSuccess(res.Message);
+                        setTimeout(CloseWin, 1500);
+                    }
+                    else {
+                        window.parent.tipError(res.Message);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}
+
+

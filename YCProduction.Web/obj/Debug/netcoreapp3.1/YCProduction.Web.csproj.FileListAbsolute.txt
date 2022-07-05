@@ -213,3 +213,16 @@ C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netc
 C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Duties\Index.cshtml.g.cs
 C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Duties\AddDuties.cshtml.g.cs
 C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Base\Views\Duties\EditDuties.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\ProjectResult\Index.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\ProjectResult\AddProjectResult.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\_ViewImports.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\ProjectResult\EditProjectResult.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\SetUpProjectCategory\Index.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\SetUpProjectCategory\AddSetUpProjectCategory.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\SetUpProjectCategory\EditSetUpProjectCategory.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\IndustryCategory\Index.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\IndustryCategory\AddIndustryCategory.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\IndustryCategory\EditIndustryCategory.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\ProjectCategory\Index.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\ProjectCategory\AddProjectCategory.cshtml.g.cs
+C:\Users\Administrator\source\repos\YCProduction\YCProduction.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Dictionary\Views\ProjectCategory\EditProjectCategory.cshtml.g.cs

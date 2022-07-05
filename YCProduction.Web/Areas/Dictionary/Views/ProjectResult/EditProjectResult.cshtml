@@ -1,0 +1,83 @@
+﻿@model YCProduction.Model.Entitys.Dictionary.DicProjectResult
+@{
+    ViewData["Title"] = "EditProjectResult";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+<form id="formForm" action="" class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            投标或立项结果ID
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" asp-for="ResultId" class="layui-input" lay-verify="ResultId" lay-vertype="tips" readonly="readonly" placeholder="投标或立项结果ID">
+            <input type="hidden" asp-for="Id">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            投标或立项结果
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" asp-for="Result" class="layui-input" lay-verify="Result" lay-vertype="tips" placeholder="投标或立项结果">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            说明
+        </label>
+        <div class="layui-input-inline">
+            <textarea asp-for="Explain" rows="5" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">
+            备注
+        </label>
+        <div class="layui-input-inline">
+            <textarea asp-for="Remarks" rows="5" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button lay-submit="" lay-filter="btnSubmit" class="layui-btn layui-btn-normal">保存</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+@section scripts{
+    <script type="text/javascript">
+        layui.use(["form", "common"], function () {
+            var form = layui.form,
+                common = layui.common,
+                $ = layui.$;
+            //验证
+            form.verify({
+                ResultId: function (value) {
+                    if (!$.trim(value))
+                        return "投标或立项结果ID必填";
+                },
+                Result: function (value) {
+                    if (!$.trim(value)) {
+                        return "投标或立项结果必填";
+                    }
+                }
+            });
+            //提交
+            form.on('submit(btnSubmit)', function () {
+                var formData = $('#formForm').serialize();
+                $.post('/Dictionary/ProjectResult/EditProjectResult', formData, function (res) {
+                    if (res.State) {
+                        window.parent.tipSuccess(res.Message);
+                        setTimeout(CloseWin, 1500);
+                    }
+                    else {
+                        window.parent.tipError(res.Message);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}
+

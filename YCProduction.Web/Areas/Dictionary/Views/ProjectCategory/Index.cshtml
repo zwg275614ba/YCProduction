@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+
+<!----------------查 询------------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form class="layui-form form-search" action="" id="formSearch">
+            <div class="layui-form-item">
+                <label class="layui-form-label">项目类别</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="ProjectCategory" placeholder="项目类别" class="layui-input">
+                </div>
+                <div>
+                    <a href="javascript:;" class="pear-btn pear-btn-md pear-btn-primary" id="btnQuery" data-type="reload">
+                        <i class="layui-icon layui-icon-search"></i>
+                        查询
+                    </a>
+                    <button type="reset" class="pear-btn pear-btn-md">
+                        <i class="layui-icon layui-icon-refresh"></i>
+                        重置
+                    </button>
+                    @Html.TopToolBarHtml(ViewData["ActionFormRightTop"])
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-------------表格--------------->
+<div class="layui-card">
+    <div class="layui-card-body">
+        <table id="defaultTable" lay-filter="ProjectCategoryTable"></table>
+    </div>
+</div>
+<!------------------工具栏------------------------->
+<script type="text/html" id="toolBar">
+    @Html.ToolBarHtml(ViewData["ActionList"])
+</script>
+
+@section scripts{
+    <script type="text/javascript">
+        layui.use(['form', 'table', 'common'], function () {
+            var form = layui.form,
+                common = layui.common,
+                table = layui.table,
+                $ = layui.$;
+            //渲染表格
+            table.render({
+                id: 'defaultReload',
+                elem: '#defaultTable',
+                height: 'full-140',
+                url: '/Dictionary/ProjectCategory/GetProjectCategoryList',
+                toolbar: true,
+                page: true,
+                cols: [[
+                    { field: 'ProjectCategoryId', title: '项目类别ID', sort: true },
+                    { field: 'IndustryCategoryId', title: '行业类别ID', sort: true },
+                    { field: 'ProjectCategory', title: '项目类别', sort: true },
+                    { field: 'Remarks', title: '备注' },
+                    { field: '', title: '操作', toolbar: '#toolBar' }
+                ]]
+            });
+            var active = {
+                reload: function () {
+                    var jsonWhere = urlToJson($("#formSearch").serialize());
+                    //执行重载
+                    table.reload('defaultReload', {
+                        page: {
+                            curr: 1 //重新从第 1 页开始
+                        }
+                        , where: jsonWhere
+                    });
+                }
+            };
+            //服务器排序
+            table.on('sort(ProjectCategoryTable)', function (obj) {
+                table.reload('defaultReload', {
+                    initSort: obj
+                    , where: { //请求参数
+                        field: obj.field //排序字段
+                        , order: obj.type //排序方式
+                    }
+                });
+            });
+            //查询
+            $("#btnQuery").on('click', function () {
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+            //添加
+            $('#btnAdd').on('click', function () {
+                common.openTop({
+                    title: '添加项目类别', w: '600px', h: '450px', content: '/Dictionary/ProjectCategory/AddProjectCategory/'
+                });
+            });
+            //监听工具栏
+            table.on('tool(ProjectCategoryTable)', function (obj) {
+                var data = obj.data;
+                //编辑
+                if (obj.event === 'edit') {
+                    common.openTop({
+                        title: '编辑项目类别', w: '600px', h: '450px', content: '/Dictionary/ProjectCategory/EditProjectCategory/' + data.Id
+                    });
+                }//删除
+                else if (obj.event === 'del') {
+                    layer.confirm('确定要删除该条数据', function (index) {
+                        $.post('/Dictionary/ProjectCategory/DelInfo', { id: data.Id }, function (data) {
+                            if (data.State) {
+                                obj.del();//删除这一行
+                                tipSuccess(data.Message);
+                            }
+                            else {
+                                tipError(data.Message);
+                            }
+                            layer.close(index);//关闭弹框
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+}

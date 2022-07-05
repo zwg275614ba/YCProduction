@@ -7,4 +7,3 @@ C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Common\obj\Debug\n
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Common\obj\Debug\netcoreapp3.1\YCProduction.Common.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Common\obj\Debug\netcoreapp3.1\YCProduction.Common.dll
 C:\Users\Administrator\Source\Repos\YCProduction\YCProduction.Common\obj\Debug\netcoreapp3.1\YCProduction.Common.pdb
-C:\Users\Administrator\source\repos\YCProduction\YCProduction.Common\obj\Debug\netcoreapp3.1\YCProduction.Common.csproj.AssemblyReference.cache
